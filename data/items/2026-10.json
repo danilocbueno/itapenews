@@ -84,6 +84,18 @@
         "hidden": false
     },
     {
+        "id": "56bb8d48d2024c3c",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/",
+        "title": "Chuva passa de 110 mm em Itapetininga e deixa desabrigados",
+        "summary": "Defesa Civil mantém alerta laranja em todo o estado de São Paulo; temporais provocaram alagamentos, quedas de árvores e deslizamentos, e a previsão é de mais chuva neste domingo (25)",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/10/imagem-capa-Site-11-1.png",
+        "published_at": "2026-10-25T08:24:43-03:00",
+        "collected_at": "2026-10-25T20:16:40-03:00",
+        "cluster": "56bb8d48d2024c3c",
+        "hidden": false
+    },
+    {
         "id": "0bac371de4cc7e67",
         "source": "g1",
         "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/10/25/temporal-causa-alagamentos-e-deixa-moradores-desabrigados-na-regiao-de-itapetininga.ghtml",
@@ -108,6 +120,18 @@
         "hidden": false
     },
     {
+        "id": "6992c8f84ee238fe",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/",
+        "title": "Transporte público será gratuito no dia da eleição em Sorocaba, Jundiaí e Itapetininga",
+        "summary": "Cidades da região terão passe livre e mudanças na operação dos ônibus para facilitar o deslocamento dos eleitores neste domingo (25)",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/09/Nova-linha-de-onibus-liga-terminais-Sao-Bento-e-Vitoria-Regia-em-Sorocaba.png",
+        "published_at": "2026-10-24T16:18:09-03:00",
+        "collected_at": "2026-10-25T20:16:40-03:00",
+        "cluster": "6992c8f84ee238fe",
+        "hidden": false
+    },
+    {
         "id": "536e3aaab1d62b50",
         "source": "g1",
         "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/10/24/obras-de-hospital-estadual-em-itapetininga-passam-de-50percent-construtora-abre-mais-de-50-vagas.ghtml",
@@ -117,6 +141,18 @@
         "published_at": "2026-10-24T14:37:35-03:00",
         "collected_at": "2026-10-25T18:06:06-03:00",
         "cluster": "536e3aaab1d62b50",
+        "hidden": false
+    },
+    {
+        "id": "b1ac2b3b131acdbe",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/",
+        "title": "Região entra em alerta para temporais neste domingo",
+        "summary": "Defesa Civil prevê chuva forte, raios e rajadas de vento em várias regiões do estado de São Paulo; há risco de alagamentos e quedas de árvores",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/10/imagem-capa-Site-20.jpg",
+        "published_at": "2026-10-24T11:48:16-03:00",
+        "collected_at": "2026-10-25T20:16:40-03:00",
+        "cluster": "b1ac2b3b131acdbe",
         "hidden": false
     },
     {
@@ -537,6 +573,18 @@
         "published_at": "2026-10-20T17:52:41-03:00",
         "collected_at": "2026-10-25T18:06:06-03:00",
         "cluster": "2cd53027918b3471",
+        "hidden": false
+    },
+    {
+        "id": "45ebe0fc22825cfb",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/",
+        "title": "Operação apreende armas, munições e cigarros de origem estrangeira em Itapetininga",
+        "summary": "Homem de 33 anos foi preso e produtos de origem paraguaia foram apreendidos em dois estabelecimentos comerciais",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/10/TVS-SBT-NOTICIAS-14-2.png",
+        "published_at": "2026-10-20T15:00:55-03:00",
+        "collected_at": "2026-10-25T20:16:40-03:00",
+        "cluster": "45ebe0fc22825cfb",
         "hidden": false
     },
     {
