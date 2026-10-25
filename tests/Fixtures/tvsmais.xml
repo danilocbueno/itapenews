@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Você pesquisou por itapetininga | TVS+</title>
+	<atom:link href="https://www.tvsmais.com.br/?s=itapetininga&#038;feed=rss2" rel="self" type="application/rss+xml" />
+	<link>https://www.tvsmais.com.br/</link>
+	<description>SBT - Sistema Brasileiro de Televisão</description>
+	<lastBuildDate>Sun, 25 Oct 2026 19:43:44 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.1.3</generator>
+
+<image>
+	<url>https://www.tvsmais.com.br/wp-content/uploads/2025/12/cropped-Design-sem-nome-32x32.png</url>
+	<title>Você pesquisou por itapetininga | TVS+</title>
+	<link>https://www.tvsmais.com.br/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Eleições 2026: acompanhe a apuração do segundo turno</title>
+		<link>https://www.tvsmais.com.br/eleicoes-2026-acompanhe-a-apuracao-do-segundo-turno/</link>
+					<comments>https://www.tvsmais.com.br/eleicoes-2026-acompanhe-a-apuracao-do-segundo-turno/#respond</comments>
+		
+		<dc:creator><![CDATA[Matheus Dias]]></dc:creator>
+		<pubDate>Sun, 25 Oct 2026 19:40:00 +0000</pubDate>
+				<category><![CDATA[Eleições 2026]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97185</guid>
+
+					<description><![CDATA[<p>TVS+ disponibiliza ferramenta online com atualização dos resultados das eleições em tempo real.</p>
+<p>O post <a href="https://www.tvsmais.com.br/eleicoes-2026-acompanhe-a-apuracao-do-segundo-turno/">Eleições 2026: acompanhe a apuração do segundo turno</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">A apuração do segundo turno das Eleições 2026 pode ser acompanhada em tempo real na plataforma da TVS+ SBT, logo abaixo.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<div class="apuracao-tvs" style="position:relative;width:100%;max-width:1280px;margin:0 auto;aspect-ratio:16/9;">
+  <iframe
+    src="https://apuracaotvsmais.netlify.app/"
+    title="Apuração das Eleições 2026 - TVS+ SBT"
+    style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+<script>
+/* Ajusta o quadro da apuração: 16:9 no computador, altura livre no celular */
+window.addEventListener('message', function (e) {
+  if (!e.data || e.data.tipo !== 'apuracao-tvs-altura') return;
+  document.querySelectorAll('.apuracao-tvs iframe').forEach(function (f) {
+    if (f.contentWindow !== e.source) return;
+    var box = f.parentNode;
+    if (e.data.altura > 0) {
+      box.style.aspectRatio = 'auto'; box.style.height = e.data.altura + 'px';
+    } else {
+      box.style.aspectRatio = '16/9'; box.style.height = '';
+    }
+  });
+});
+</script>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">A ferramenta reúne, em um só lugar, os dados da totalização dos votos para presidente. Na aba “Brasil”, é possível acompanhar o andamento da apuração em todos os estados.</p>
+
+
+
+<p class="wp-block-paragraph">Também é possível consultar os índices do estado de São Paulo, o número de votos na área de cobertura da TVS+ SBT e os resultados de cada cidade. Os números são atualizados conforme os dados oficiais são contabilizados e divulgados.</p>
+
+
+
+<h2 class="wp-block-heading">Quase 1 milhão de eleitores na região</h2>
+
+
+
+<p class="wp-block-paragraph">Sorocaba, Jundiaí e Itapetininga somam quase 1 milhão de eleitores aptos a votar. Sorocaba tem cerca de 530 mil eleitores, Jundiaí passa de 337 mil e Itapetininga tem aproximadamente 114 mil.</p>
+
+
+
+<p class="wp-block-paragraph">Em São Paulo, a disputa neste turno é apenas para presidente da República.</p>
+
+
+
+<p class="wp-block-paragraph">A TVS+ também acompanha os acontecimentos da eleição em Sorocaba, Jundiaí, Itapetininga e outras cidades do interior paulista.</p>
+
+
+
+<h2 class="wp-block-heading">Posse será em 5 de janeiro</h2>
+
+
+
+<p class="wp-block-paragraph">O presidente e o vice-presidente eleitos tomam posse em 5 de janeiro de 2027. A data mudou: antes, a cerimônia era realizada no dia 1º, mas a Emenda Constitucional nº 111 alterou o dia para melhorar a logística e facilitar a presença de autoridades.</p>
+
+
+
+<p class="wp-block-paragraph">A cerimônia tem três etapas:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Sessão no Congresso Nacional: ato jurídico obrigatório em que o eleito assume o compromisso de defender a Constituição, as leis e o país.</li>
+
+
+
+<li>Desfile e faixa presidencial: o presidente percorre a Esplanada dos Ministérios e recebe a faixa presidencial no Palácio do Planalto.</li>
+
+
+
+<li>Pronunciamento à nação: discurso no parlatório para o público, seguido dos atos finais com delegações estrangeiras.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/eleicoes-2026-acompanhe-a-apuracao-do-segundo-turno/">Eleições 2026: acompanhe a apuração do segundo turno</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/eleicoes-2026-acompanhe-a-apuracao-do-segundo-turno/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>20 urnas são substituídas na região durante o segundo turno</title>
+		<link>https://www.tvsmais.com.br/seis-urnas-sao-substituidas-na-regiao-durante-o-segundo-turno/</link>
+					<comments>https://www.tvsmais.com.br/seis-urnas-sao-substituidas-na-regiao-durante-o-segundo-turno/#respond</comments>
+		
+		<dc:creator><![CDATA[Jacqueline França]]></dc:creator>
+		<pubDate>Sun, 25 Oct 2026 15:08:19 +0000</pubDate>
+				<category><![CDATA[TVS]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97514</guid>
+
+					<description><![CDATA[<p>Quatro equipamentos apresentaram problemas em Sorocaba; Itupeva e Jundiaí também tiveram substituições</p>
+<p>O post <a href="https://www.tvsmais.com.br/seis-urnas-sao-substituidas-na-regiao-durante-o-segundo-turno/">20 urnas são substituídas na região durante o segundo turno</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Ao todo 20 urnas eletrônicas precisaram ser substituídas neste domingo (25), durante o segundo turno das eleições, em cidades da região. Oito equipamentos foram trocados em Sorocaba e mais oito em Jundiaí.</p>
+
+
+
+<span id="more-97514"></span>
+
+
+
+<p class="wp-block-paragraph">Itapetininga, Itupeva, Salto de Pirapora e Tatuí registraram uma substituição em cada cidade, que foram foi necessárias depois que os equipamentos apresentaram problemas durante a votação. As urnas foram trocadas para que os eleitores pudessem continuar votando normalmente.</p>
+
+
+
+<p class="wp-block-paragraph">A troca não causou transtornos aos eleitores. O procedimento foi realizado pelos mesários e pela equipe da Justiça Eleitoral, e a votação continuou normalmente após a troca dos equipamentos.</p>
+
+
+
+<p class="wp-block-paragraph">A votação neste domingo segue até as cinco da tarde, pelo horário de Brasília. Quem estiver na fila às cinco horas também poderá votar. Nesse caso, os mesários devem distribuir senhas para garantir o atendimento.</p>
+
+
+
+<p class="wp-block-paragraph">Para votar, o eleitor precisa apresentar um documento oficial com foto. Também é possível usar o e-Título, desde que o aplicativo tenha a fotografia do eleitor.</p>
+
+
+
+<p class="wp-block-paragraph">Entre os documentos aceitos estão RG, Carteira Nacional de Habilitação, passaporte e Carteira de Identidade Nacional.</p>
+
+
+
+<p class="wp-block-paragraph">O título de eleitor em papel não é obrigatório e, sozinho, não serve como documento de identificação.</p>
+
+
+
+<p class="wp-block-paragraph">Outra orientação é sobre o celular. O aparelho não pode ser levado para a cabine de votação e deve ser deixado com os mesários no local indicado.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/seis-urnas-sao-substituidas-na-regiao-durante-o-segundo-turno/">20 urnas são substituídas na região durante o segundo turno</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/seis-urnas-sao-substituidas-na-regiao-durante-o-segundo-turno/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>2º turno: Itapetininga tem 471 urnas e 114 mil eleitores</title>
+		<link>https://www.tvsmais.com.br/2o-turno-itapetininga-tem-471-urnas-e-114-mil-eleitores/</link>
+					<comments>https://www.tvsmais.com.br/2o-turno-itapetininga-tem-471-urnas-e-114-mil-eleitores/#respond</comments>
+		
+		<dc:creator><![CDATA[Nicole Bonentti]]></dc:creator>
+		<pubDate>Sun, 25 Oct 2026 13:30:00 +0000</pubDate>
+				<category><![CDATA[Eleições 2026]]></category>
+		<category><![CDATA[Itapetininga]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97424</guid>
+
+					<description><![CDATA[<p>Votação ocorre neste domingo (25), das 8h às 17h, em 61 locais; eleitores devem conferir os documentos exigidos e as regras para votar</p>
+<p>O post <a href="https://www.tvsmais.com.br/2o-turno-itapetininga-tem-471-urnas-e-114-mil-eleitores/">2º turno: Itapetininga tem 471 urnas e 114 mil eleitores</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Os eleitores de Itapetininga vão às urnas neste domingo (25) para o segundo turno das eleições de 2026. O município conta com 114.292 eleitores aptos a votar, distribuídos em 432 seções eleitorais. Ao todo, são 471 urnas eletrônicas em 61 locais de votação.</p>
+
+
+
+<p class="wp-block-paragraph">Entre os maiores colégios eleitorais da cidade estão a Escola Estadual Peixoto Gomide e a Escola PEI Sebastião Villaça, ambas com 17 seções eleitorais.</p>
+
+
+
+<p class="wp-block-paragraph">A votação ocorre das 8h às 17h, pelo horário de Brasília. Para evitar imprevistos, os eleitores devem conferir o local de votação e separar os documentos necessários antes de sair de casa.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading">Documentos necessários para votar</h2>
+
+
+
+<p class="wp-block-paragraph">Para ser identificado na seção eleitoral, é necessário apresentar um documento oficial com foto. São aceitos carteira de identidade, Carteira de Identidade Nacional (CIN), identidade social, passaporte, Carteira Nacional de Habilitação (CNH), carteira de trabalho física e carteira profissional emitida por conselho de classe.</p>
+
+
+
+<p class="wp-block-paragraph">O e-Título também pode ser utilizado como documento de identificação, desde que o aplicativo apresente a foto do eleitor. Documentos oficiais com foto podem ser aceitos mesmo vencidos, desde que permitam a identificação.</p>
+
+
+
+<p class="wp-block-paragraph">Certidões de nascimento e casamento não são aceitas para identificação. A carteira de trabalho digital também não pode ser utilizada para esse fim. Já o título de eleitor em papel não substitui o documento oficial com foto e não é obrigatório para votar.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading">Como usar o e-Título</h2>
+
+
+
+<p class="wp-block-paragraph">O aplicativo e-Título permite consultar informações como o número do título de eleitor, a situação eleitoral e o local de votação. Quem pretende utilizá-lo como documento de identificação deve verificar se a foto está disponível no aplicativo.</p>
+
+
+
+<p class="wp-block-paragraph">Caso a fotografia não apareça, será necessário apresentar outro documento oficial com foto.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading">Regras para entrar na cabine de votação</h2>
+
+
+
+<p class="wp-block-paragraph">Na seção eleitoral, o eleitor deve apresentar o documento de identificação à mesa receptora. Nos casos em que o procedimento estiver disponível, eleitores com biometria cadastrada poderão ser identificados pela impressão digital.</p>
+
+
+
+<p class="wp-block-paragraph">É proibido entrar na cabine de votação com celular, câmera, filmadora ou qualquer outro aparelho eletrônico que possa comprometer o sigilo do voto. Antes de entrar, o eleitor deve desligar o celular e entregá-lo à mesa receptora.</p>
+
+
+
+<p class="wp-block-paragraph">A chamada colinha eleitoral pode ser levada para a cabine, desde que esteja impressa. A anotação ajuda o eleitor a consultar os números das candidaturas antes de digitá-los na urna.</p>
+
+
+
+<p class="wp-block-paragraph">Com os documentos em mãos e o local de votação conferido, os eleitores de Itapetininga podem participar do segundo turno neste domingo.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="2º turno: Itapetininga tem 471 urnas e 114 mil eleitores | TVS+ SBT" width="1080" height="608" src="https://www.youtube.com/embed/u2vPdHLBE0o?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/2o-turno-itapetininga-tem-471-urnas-e-114-mil-eleitores/">2º turno: Itapetininga tem 471 urnas e 114 mil eleitores</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/2o-turno-itapetininga-tem-471-urnas-e-114-mil-eleitores/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Chuva passa de 110 mm em Itapetininga e deixa desabrigados</title>
+		<link>https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/</link>
+					<comments>https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/#respond</comments>
+		
+		<dc:creator><![CDATA[Nicole Bonentti]]></dc:creator>
+		<pubDate>Sun, 25 Oct 2026 11:24:43 +0000</pubDate>
+				<category><![CDATA[Chuva]]></category>
+		<category><![CDATA[Itapetininga]]></category>
+		<category><![CDATA[TVS]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97486</guid>
+
+					<description><![CDATA[<p>Defesa Civil mantém alerta laranja em todo o estado de São Paulo; temporais provocaram alagamentos, quedas de árvores e deslizamentos, e a previsão é de mais chuva neste domingo (25)</p>
+<p>O post <a href="https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/">Chuva passa de 110 mm em Itapetininga e deixa desabrigados</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">A chuva intensa que atingiu o estado de São Paulo entre a noite de sábado (24) e a madrugada deste domingo (25) provocou alagamentos, quedas de árvores, destelhamentos e deslizamentos de terra. Na região, Itapetininga registrou 110 milímetros de chuva em 12 horas, enquanto Sorocaba acumulou 84 milímetros e Jundiaí, 79 milímetros, segundo dados da Defesa Civil estadual. O órgão mantém o alerta laranja para todo o território paulista, com previsão de novos temporais ao longo deste domingo.</p>
+
+
+
+<p class="wp-block-paragraph">Em Itapetininga, o transbordamento do Rio Ribeirão dos Cavalos provocou a inundação de vias e atingiu residências na Vila Santa Isabel. Duas pessoas ficaram desabrigadas e foram encaminhadas para um abrigo municipal provisório.</p>
+
+
+
+<p class="wp-block-paragraph">Em Sorocaba, o volume acumulado em 12 horas chegou a 88 milímetros, na estação localizada no bairro Cerrado. Já em Jundiaí, foram registrados 79 milímetros na região da Roseira, tanto no levantamento das últimas 12 quanto das últimas 24 horas.</p>
+
+
+
+<h2 class="wp-block-heading">Previsão indica mais temporais</h2>
+
+
+
+<p class="wp-block-paragraph">A passagem de uma frente fria pelo oceano mantém o tempo instável em todo o estado de São Paulo neste domingo (25). A previsão é de chuva de moderada a forte intensidade, acompanhada de raios e rajadas de vento. Pontualmente, não está descartada a ocorrência de granizo.</p>
+
+
+
+<p class="wp-block-paragraph">Os maiores acumulados podem ocorrer nas regiões central e leste do estado, com atenção especial para áreas sujeitas a alagamentos e elevação rápida dos níveis de rios e córregos.</p>
+
+
+
+<p class="wp-block-paragraph">Diante do cenário, a Defesa Civil mantém o alerta laranja e intensifica o monitoramento das condições meteorológicas e dos possíveis impactos dos temporais.</p>
+
+
+
+<h2 class="wp-block-heading">Alertas enviados durante a madrugada</h2>
+
+
+
+<p class="wp-block-paragraph">Entre meia-noite e 6h15 deste domingo, a Defesa Civil estadual enviou 28 mensagens preventivas à população: 26 por SMS e duas pelo sistema Cell Broadcast. Os avisos alertaram para chuva intensa, raios, rajadas de vento, possibilidade de granizo e elevação dos níveis de rios e córregos.</p>
+
+
+
+<p class="wp-block-paragraph">O Gabinete Especial da Operação El Niño também está mobilizado no Centro de Gerenciamento de Emergências para acompanhar a evolução das condições meteorológicas e coordenar ações de prevenção e resposta.</p>
+
+
+
+<h2 class="wp-block-heading">Orientações da Defesa Civil</h2>
+
+
+
+<p class="wp-block-paragraph">A recomendação é evitar áreas alagadas e nunca atravessar ruas inundadas ou trechos com correnteza, seja a pé ou de carro. Durante as tempestades, a população deve procurar abrigo em locais seguros e manter distância de árvores, postes e estruturas metálicas.</p>
+
+
+
+<p class="wp-block-paragraph">Em áreas de encosta, é importante observar sinais de risco, como rachaduras no solo ou nas paredes, inclinação de árvores e postes e surgimento de água barrenta. Ao identificar esses indícios, a orientação é deixar o local imediatamente.</p>
+
+
+
+<p class="wp-block-paragraph">Para receber alertas gratuitos por SMS, basta enviar o CEP da localidade desejada para o número <strong>40199</strong>. Em situações de emergência, a Defesa Civil pode ser acionada pelo telefone <strong>199</strong>, e o Corpo de Bombeiros, pelo <strong>193</strong>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/">Chuva passa de 110 mm em Itapetininga e deixa desabrigados</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/chuva-passa-de-110-mm-em-itapetininga-e-deixa-desabrigados/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Transporte público será gratuito no dia da eleição em Sorocaba, Jundiaí e Itapetininga</title>
+		<link>https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/</link>
+					<comments>https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/#respond</comments>
+		
+		<dc:creator><![CDATA[Jacqueline França]]></dc:creator>
+		<pubDate>Sat, 24 Oct 2026 19:18:09 +0000</pubDate>
+				<category><![CDATA[Eleições 2026]]></category>
+		<category><![CDATA[Itapetininga]]></category>
+		<category><![CDATA[Jundiaí]]></category>
+		<category><![CDATA[Sorocaba]]></category>
+		<category><![CDATA[Transporte]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97484</guid>
+
+					<description><![CDATA[<p>Cidades da região terão passe livre e mudanças na operação dos ônibus para facilitar o deslocamento dos eleitores neste domingo (25)</p>
+<p>O post <a href="https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/">Transporte público será gratuito no dia da eleição em Sorocaba, Jundiaí e Itapetininga</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Sorocaba, Jundiaí e Itapetininga terão transporte público gratuito neste domingo (25), dia do segundo turno das Eleições 2026. As três cidades também terão reforço ou linhas extras para atender os eleitores durante a votação.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Sorocaba</strong></p>
+
+
+
+<p class="wp-block-paragraph">Em Sorocaba, o transporte coletivo terá gratuidade durante todo o domingo, a exemplo do que ocorreu no primeiro turno.</p>
+
+
+
+<p class="wp-block-paragraph">A cidade conta com cinco zonas eleitorais e 179 pontos de votação. A operação terá reforço em diferentes pontos, com agentes de trânsito nas ruas e acompanhamento por videomonitoramento.</p>
+
+
+
+<p class="wp-block-paragraph">Também haverá interdições em trechos próximos aos cartórios eleitorais por causa da circulação de veículos oficiais, do recebimento de urnas eletrônicas e materiais de apuração e da instalação da Junta Apuradora.</p>
+
+
+
+<p class="wp-block-paragraph">Um dos principais pontos de atenção fica nas proximidades da Praça da Maçonaria, no Mangal, onde funcionam a 271ª e a 294ª Zonas Eleitorais. As vias no entorno estarão fechadas a partir das 5h desta sexta-feira (23).</p>
+
+
+
+<p class="wp-block-paragraph">Já na Rua Professor Ovídio de Campos, onde funciona a 294ª Zona Eleitoral, a interdição começa às 4h deste domingo (25).</p>
+
+
+
+<h3 class="wp-block-heading">Jundiaí</h3>
+
+
+
+<p class="wp-block-paragraph">Em Jundiaí, os ônibus municipais terão tarifa gratuita das 7h às 18h deste domingo.</p>
+
+
+
+<p class="wp-block-paragraph">Além do passe livre, 22 linhas terão operação especial, com reforço no atendimento e redução de até 50% no intervalo entre as viagens.</p>
+
+
+
+<h3 class="wp-block-heading">Itapetininga</h3>
+
+
+
+<p class="wp-block-paragraph">Em Itapetininga, o transporte público também será gratuito neste domingo (25).</p>
+
+
+
+<p class="wp-block-paragraph">A cidade terá 11 linhas com operação especial, com ônibus extras para atender os eleitores durante o segundo turno das eleições.</p>
+
+
+
+<p class="wp-block-paragraph">A recomendação para quem vai votar é verificar previamente os horários e as linhas disponíveis e sair com antecedência para evitar imprevistos no deslocamento.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/">Transporte público será gratuito no dia da eleição em Sorocaba, Jundiaí e Itapetininga</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/transporte-publico-sera-gratuito-no-dia-da-eleicao-em-sorocaba-jundiai-e-itapetininga/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Região entra em alerta para temporais neste domingo</title>
+		<link>https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/</link>
+					<comments>https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/#respond</comments>
+		
+		<dc:creator><![CDATA[Jacqueline França]]></dc:creator>
+		<pubDate>Sat, 24 Oct 2026 14:48:16 +0000</pubDate>
+				<category><![CDATA[TVS]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97473</guid>
+
+					<description><![CDATA[<p>Defesa Civil prevê chuva forte, raios e rajadas de vento em várias regiões do estado de São Paulo; há risco de alagamentos e quedas de árvores</p>
+<p>O post <a href="https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/">Região entra em alerta para temporais neste domingo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">As regiões de Sorocaba, Jundiaí e Itapetininga estão entre as áreas que devem ficar atentas à previsão de temporais neste domingo (25). A Defesa Civil do Estado de São Paulo colocou todo o território paulista em alerta laranja para a possibilidade de chuva forte, raios, rajadas de vento e queda pontual de granizo.</p>
+
+
+
+<span id="more-97473"></span>
+
+
+
+<p class="wp-block-paragraph">A previsão de chuva intensa mantém todo o estado de São Paulo em atenção neste sábado (24). Para domingo (25), a Defesa Civil elevou o nível de alerta para todo o território paulista diante da possibilidade de temporais em diversas regiões.</p>
+
+
+
+<p class="wp-block-paragraph">Nas regiões de Sorocaba, Jundiaí e Itapetininga, a previsão é de pancadas de chuva de moderada a forte intensidade, que podem ocorrer de forma irregular. Também há possibilidade de episódios isolados de tempo severo, com raios e ventos fortes.</p>
+
+
+
+<p class="wp-block-paragraph">O cenário exige atenção para alagamentos, enxurradas, elevação rápida dos níveis de rios e córregos, quedas de árvores, destelhamentos e deslizamentos de terra em áreas de risco.</p>
+
+
+
+<p class="wp-block-paragraph">A situação pode variar entre os municípios. Por isso, a orientação é acompanhar os avisos da Defesa Civil e redobrar os cuidados durante os períodos de chuva mais intensa.</p>
+
+
+
+<h3 class="wp-block-heading">Gabinete especial será mobilizado no domingo</h3>
+
+
+
+<p class="wp-block-paragraph">No domingo (25), o Gabinete Especial da Operação El Niño terá mobilização presencial no Centro de Gerenciamento de Emergências (CGE), com o objetivo de intensificar o monitoramento das condições meteorológicas e coordenar ações de preparação e resposta em todo o estado.</p>
+
+
+
+<p class="wp-block-paragraph">Coordenado pela Coordenadoria Estadual de Proteção e Defesa Civil, o gabinete reúne órgãos do Sistema Estadual de Proteção e Defesa Civil para acompanhar a evolução dos riscos, apoiar decisões operacionais e reforçar as orientações à população.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/">Região entra em alerta para temporais neste domingo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/regiao-entra-em-alerta-para-temporais-neste-domingo/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Finados: veja os prazos para limpeza, pintura e reforma de túmulos na região</title>
+		<link>https://www.tvsmais.com.br/finados-veja-os-prazos-para-limpeza-pintura-e-reforma-de-tumulos-na-regiao/</link>
+					<comments>https://www.tvsmais.com.br/finados-veja-os-prazos-para-limpeza-pintura-e-reforma-de-tumulos-na-regiao/#respond</comments>
+		
+		<dc:creator><![CDATA[Nicole Bonentti]]></dc:creator>
+		<pubDate>Thu, 22 Oct 2026 19:28:30 +0000</pubDate>
+				<category><![CDATA[Notícia Regional]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97347</guid>
+
+					<description><![CDATA[<p>Prefeituras estabelecem datas para a manutenção dos jazigos antes do Dia de Finados, celebrado em 2 de novembro</p>
+<p>O post <a href="https://www.tvsmais.com.br/finados-veja-os-prazos-para-limpeza-pintura-e-reforma-de-tumulos-na-regiao/">Finados: veja os prazos para limpeza, pintura e reforma de túmulos na região</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Relembrar momentos e homenagear quem já partiu. No dia 2 de novembro, feriado de Finados, muitas famílias mantêm a tradição de visitar os cemitérios. Mas, para deixar os jazigos preparados para a data, é preciso ficar atento aos prazos estabelecidos pelas prefeituras para a realização de reformas, pinturas e limpezas. O cumprimento dos prazos é importante para que a prefeitura possa realizar a limpeza geral dos cemitérios. Após o encerramento do período estabelecido, não é mais possível fazer reformas ou pinturas nos jazigos.</p>
+
+
+
+<p class="wp-block-paragraph">A manutenção dos jazigos é importante não apenas para o Dia de Finados, mas também para manter os cemitérios limpos e evitar a presença de animais peçonhentos, como os escorpiões.</p>
+
+
+
+<p class="wp-block-paragraph">Na hora de levar flores para homenagear quem já partiu, também é preciso tomar alguns cuidados com os vasos. Pratinhos de plantas e recipientes que acumulam água podem se tornar criadouros do mosquito Aedes aegypti, transmissor da dengue e de outras doenças.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h3 class="wp-block-heading">PRAZOS PARA LIMPEZA E MANUTENÇÃO</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Votorantim: obras, reformas e pinturas até 27 de outubro; limpeza até 30 de outubro</li>
+
+
+
+<li>Sorocaba: reformas até 23 de outubro; limpezas e pinturas até 31 de outubro</li>
+
+
+
+<li>Itapetininga: limpeza e manutenção até 28 de outubro</li>
+
+
+
+<li>Jundiaí: limpeza e manutenção até 31 de outubro</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Finados: veja os prazos para limpeza, pintura e reforma de túmulos na região | TVS+ SBT" width="1080" height="608" src="https://www.youtube.com/embed/zksNuJ6Kgmk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/finados-veja-os-prazos-para-limpeza-pintura-e-reforma-de-tumulos-na-regiao/">Finados: veja os prazos para limpeza, pintura e reforma de túmulos na região</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/finados-veja-os-prazos-para-limpeza-pintura-e-reforma-de-tumulos-na-regiao/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Operação apreende armas, munições e cigarros de origem estrangeira em Itapetininga</title>
+		<link>https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/</link>
+					<comments>https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/#respond</comments>
+		
+		<dc:creator><![CDATA[Rafaela Monteiro]]></dc:creator>
+		<pubDate>Tue, 20 Oct 2026 18:00:55 +0000</pubDate>
+				<category><![CDATA[Itapetininga]]></category>
+		<category><![CDATA[Policial]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97228</guid>
+
+					<description><![CDATA[<p>Homem de 33 anos foi preso e produtos de origem paraguaia foram apreendidos em dois estabelecimentos comerciais</p>
+<p>O post <a href="https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/">Operação apreende armas, munições e cigarros de origem estrangeira em Itapetininga</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">A Polícia Civil apreendeu armas de fogo, munições e cigarros de origem estrangeira em Itapetininga, nesta segunda-feira (19). A operação resultou na prisão de um homem de 33 anos por porte ilegal de arma de fogo de uso restrito e na apreensão de cigarros em dois estabelecimentos comerciais.</p>
+
+
+
+<p class="wp-block-paragraph">Durante a operação, os agentes abordaram o homem no Mercado Municipal, onde ele portava uma pistola calibre 9 mm municiada. No veículo dele, também encontraram uma espingarda semiautomática calibre 12 e carregadores municiados. O homem alegou ser atirador desportivo, mas não tinha autorização legal para portar a pistola.</p>
+
+
+
+<p class="wp-block-paragraph">Na mesma ação, os agentes apreenderam 68 pacotes de cigarros e 23 maços avulsos em dois estabelecimentos comerciais da cidade. A responsável pelos produtos, uma mulher de 35 anos, admitiu que comercializava os cigarros e conhecia a procedência paraguaia das mercadorias.</p>
+
+
+
+<p class="wp-block-paragraph">A perícia examinará os cigarros para verificar a possível ocorrência de contrabando. O homem foi preso em flagrante e permaneceu à disposição da Justiça.</p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/">Operação apreende armas, munições e cigarros de origem estrangeira em Itapetininga</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/operacao-apreende-armas-municoes-e-cigarros-de-origem-estrangeira-em-itapetininga/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Operação prende três e apreende mais de 16 kg de drogas em São Miguel Arcanjo</title>
+		<link>https://www.tvsmais.com.br/operacao-prende-tres-e-apreende-mais-de-16-kg-de-drogas-em-sao-miguel-arcanjo/</link>
+					<comments>https://www.tvsmais.com.br/operacao-prende-tres-e-apreende-mais-de-16-kg-de-drogas-em-sao-miguel-arcanjo/#respond</comments>
+		
+		<dc:creator><![CDATA[Rafaela Monteiro]]></dc:creator>
+		<pubDate>Mon, 19 Oct 2026 21:27:52 +0000</pubDate>
+				<category><![CDATA[Policial]]></category>
+		<category><![CDATA[São Miguel Arcanjo]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=97170</guid>
+
+					<description><![CDATA[<p>Ação conjunta deteve três pessoas e apreendeu cocaína, maconha, crack e materiais relacionados ao tráfico</p>
+<p>O post <a href="https://www.tvsmais.com.br/operacao-prende-tres-e-apreende-mais-de-16-kg-de-drogas-em-sao-miguel-arcanjo/">Operação prende três e apreende mais de 16 kg de drogas em São Miguel Arcanjo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">Uma operação conjunta apreendeu mais de 16 kg de drogas e deteve três pessoas nesta segunda-feira (19), em São Miguel Arcanjo, no interior de São Paulo. A ação ocorreu nos bairros Vila Bela, Curumim e Centro.</p>
+
+
+
+<p class="wp-block-paragraph">Para combater o tráfico de drogas na região, as equipes cumpriram mandados de busca e apreensão em diferentes pontos. Durante a operação, os agentes prenderam dois adultos em flagrante e apreenderam um adolescente.</p>
+
+
+
+<p class="wp-block-paragraph">Ao todo, as equipes apreenderam mais de 8,7 kg de cocaína, 6,7 kg de maconha e 1,1 kg de crack. Além disso, encontraram R$ 464,55 em dinheiro, centenas de milhares de embalagens plásticas e oito balanças de precisão.</p>
+
+
+
+<p class="wp-block-paragraph">Os agentes também recolheram três câmeras de monitoramento, cadernos com anotações da contabilidade do tráfico, celulares, uma arma de pressão com munições de chumbo e um liquidificador utilizado no preparo das substâncias.</p>
+
+
+
+<p class="wp-block-paragraph">A ação reuniu a Polícia Militar, por meio da Companhia de Força Tática do 22º BPM/I, a Polícia Civil (DISE), o Canil do 14º BAEP e o Canil da Guarda Civil Municipal de Itapetininga.</p>
+
+
+
+<p class="wp-block-paragraph">Por fim, as equipes encaminharam os envolvidos e os materiais apreendidos à Delegacia de Polícia Civil de São Miguel Arcanjo. No local, as autoridades formalizaram as autuações por tráfico de drogas e associação para o tráfico. Os três permaneceram à disposição da Justiça.</p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/operacao-prende-tres-e-apreende-mais-de-16-kg-de-drogas-em-sao-miguel-arcanjo/">Operação prende três e apreende mais de 16 kg de drogas em São Miguel Arcanjo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/operacao-prende-tres-e-apreende-mais-de-16-kg-de-drogas-em-sao-miguel-arcanjo/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TRE-SP prepara urnas eletrônicas para o segundo turno das eleições em São Paulo</title>
+		<link>https://www.tvsmais.com.br/tre-sp-prepara-urnas-eletronicas-para-o-segundo-turno-das-eleicoes-em-sao-paulo/</link>
+					<comments>https://www.tvsmais.com.br/tre-sp-prepara-urnas-eletronicas-para-o-segundo-turno-das-eleicoes-em-sao-paulo/#respond</comments>
+		
+		<dc:creator><![CDATA[Kathleen Moneta]]></dc:creator>
+		<pubDate>Wed, 14 Oct 2026 17:03:55 +0000</pubDate>
+				<category><![CDATA[Eleições 2026]]></category>
+		<guid isPermaLink="false">https://www.tvsmais.com.br/?p=96947</guid>
+
+					<description><![CDATA[<p>Procedimento inclui geração de mídias, testes e lacração dos equipamentos; votação será realizada no dia 25 de outubro</p>
+<p>O post <a href="https://www.tvsmais.com.br/tre-sp-prepara-urnas-eletronicas-para-o-segundo-turno-das-eleicoes-em-sao-paulo/">TRE-SP prepara urnas eletrônicas para o segundo turno das eleições em São Paulo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">A Justiça Eleitoral começa nesta quarta-feira (14) a preparação das urnas eletrônicas que serão utilizadas no segundo turno das eleições de 2026, marcado para 25 de outubro. O procedimento ocorre nos cartórios eleitorais de todo o estado de São Paulo e inclui a geração das mídias, a instalação dos dados nas máquinas, os testes de funcionamento e a lacração dos equipamentos.</p>
+
+
+
+<p class="wp-block-paragraph">Ao todo, cerca de 114,5 mil urnas, incluindo os equipamentos de reserva para eventuais substituições, passarão pelo processo. Na capital paulista, serão preparadas mais de 28 mil máquinas. Segundo o Tribunal Regional Eleitoral de São Paulo (TRE-SP), os trabalhos devem terminar até 23 de outubro, dois dias antes da votação.</p>
+
+
+
+<p class="wp-block-paragraph">A cerimônia pública começa às 11h em todas as zonas eleitorais do estado. Primeiro, as equipes geram as mídias com os sistemas eleitorais e os dados do eleitorado e das candidaturas. Esses dispositivos, semelhantes a pen drives, armazenam as informações necessárias para o funcionamento das urnas.</p>
+
+
+
+<p class="wp-block-paragraph">Em seguida, os técnicos inserem os dados nas máquinas correspondentes a cada seção eleitoral e verificam se os equipamentos funcionam corretamente. Depois dos testes, as urnas recebem lacres produzidos pela Casa da Moeda, que ajudam a garantir a integridade dos sistemas e arquivos instalados. A juíza ou o juiz eleitoral, ou ainda a chefia do cartório, assina os lacres.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading">Eleições na região</h2>
+
+
+
+<p class="wp-block-paragraph">Em Sorocaba, 529.973 eleitores estão aptos a votar. A cidade conta com 180 locais de votação e 1.670 seções eleitorais. A Escola Municipal Dr. Oswaldo Duarte, com 22 seções e 8.223 eleitores, é o maior colégio eleitoral do município.</p>
+
+
+
+<p class="wp-block-paragraph">Já Jundiaí tem 337.017 eleitores aptos, distribuídos em 93 locais de votação e 965 seções. O Colégio Divino Salvador concentra o maior número de eleitores da cidade, com 9.468 pessoas e 27 seções eleitorais.</p>
+
+
+
+<p class="wp-block-paragraph">Em Itapetininga, são 114.289 eleitores, 50 locais de votação e 379 seções. A Escola Estadual Sebastião Villaça é o maior colégio eleitoral do município, com 5.364 eleitores distribuídos em 17 seções.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading">O que o eleitor precisa saber</h2>
+
+
+
+<p class="wp-block-paragraph">Para evitar imprevistos no segundo turno, os eleitores devem conferir com antecedência o local de votação e separar um documento oficial com foto. Quem tem o título eleitoral com biometria cadastrada e foto disponível no aplicativo também pode utilizar o e-Título para se identificar, desde que o aplicativo apresente a fotografia.</p>
+
+
+
+<p class="wp-block-paragraph">A votação será realizada das 8h às 17h, seguindo o horário de Brasília. Quem estiver na fila às 17h poderá votar, desde que receba a senha distribuída pela organização da seção.</p>
+
+
+
+<p class="wp-block-paragraph">O eleitor também deve ficar atento às regras para entrar na cabine de votação. É proibido levar celular, câmera fotográfica ou qualquer equipamento que permita registrar o voto. Por isso, o aparelho deve ficar com o mesário antes de o eleitor entrar na cabine.</p>
+
+
+
+<p class="wp-block-paragraph">Quem não puder comparecer deverá justificar a ausência. A justificativa pode ser feita pelo e-Título ou pelos meios disponibilizados pela Justiça Eleitoral, conforme as regras e os prazos de cada situação.</p>
+
+
+
+<p class="wp-block-paragraph">Com a preparação e a lacração dos equipamentos, a Justiça Eleitoral busca garantir que as urnas estejam prontas para receber os votos no dia 25 de outubro.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="TRE-SP prepara urnas eletrônicas para o segundo turno das eleições em São Paulo | TVS+ SBT" width="1080" height="608" src="https://www.youtube.com/embed/sDTuRWzLtto?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<p class="wp-block-paragraph">Veja mais notícias no nosso <a href="https://www.instagram.com/tvsmaissbt/" target="_blank" rel="noreferrer noopener">Instagram</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Siga nosso canal para receber as notícias no seu&nbsp;<a href="https://whatsapp.com/channel/0029VaoAeaH4IBh8DgnZnN0Q" target="_blank" rel="noreferrer noopener">WhatsApp</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Envie sugestão de reportagem pelo&nbsp;<a href="http://api.whatsapp.com/send?1=pt_BR&amp;phone=5515974013419" target="_blank" rel="noreferrer noopener">WhatsApp do Jornalismo</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Notícias&nbsp;<a href="https://www.tvsmais.com.br/noticias/" target="_blank" rel="noreferrer noopener">recentes</a>.</p>
+<p>O post <a href="https://www.tvsmais.com.br/tre-sp-prepara-urnas-eletronicas-para-o-segundo-turno-das-eleicoes-em-sao-paulo/">TRE-SP prepara urnas eletrônicas para o segundo turno das eleições em São Paulo</a> é de autoria de <a href="https://www.tvsmais.com.br">TVS+</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.tvsmais.com.br/tre-sp-prepara-urnas-eletronicas-para-o-segundo-turno-das-eleicoes-em-sao-paulo/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

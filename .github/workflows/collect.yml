@@ -1,0 +1,111 @@
+name: Coletar e publicar
+
+on:
+  schedule:
+    # O GitHub pode atrasar execuções agendadas em alguns minutos.
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Nunca duas coletas ao mesmo tempo (evita conflito no commit dos dados).
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    # Código novo só vai ao ar se os testes passarem.
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/ci.yml
+
+  collect:
+    needs: tests
+    if: ${{ !cancelled() && (needs.tests.result == 'success' || needs.tests.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, dom, xml, curl, iconv
+          coverage: none
+
+      - name: Cache do Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - run: composer install --no-dev --no-interaction --prefer-dist --no-progress --optimize-autoloader
+
+      # Estado das fontes (ETag, erros), tempo e alertas mudam a cada execução;
+      # ficam no cache para não gerar um commit a cada 15 minutos.
+      - name: Restaurar estado da coleta
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/state.json
+            data/weather.json
+            data/alerts.json
+          key: collect-state-${{ github.run_id }}
+          restore-keys: collect-state-
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Coletar
+        run: php itape collect
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - name: Salvar estado da coleta
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/state.json
+            data/weather.json
+            data/alerts.json
+          key: collect-state-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Commit das notícias novas
+        run: |
+          if [ -n "$(git status --porcelain data/items)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data
+            git commit -m "Coleta $(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M')"
+            git pull --rebase --autostash
+            git push
+          else
+            echo "Nenhuma notícia nova."
+          fi
+
+      - name: Gerar site
+        run: php itape build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}
+          SITE_NAME: ${{ vars.SITE_NAME }}
+          SITE_TAGLINE: ${{ vars.SITE_TAGLINE }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
+          SITE_CONTACT: ${{ vars.SITE_CONTACT }}
+          GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<?xml-stylesheet href="/media/com_icagenda/icicons/style.css" type="text/css"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Notícias - Câmara Municipal de Itapetininga - SP</title>
+		<description><![CDATA[No portal da Câmara de Itapetininga, você acompanha as ações dos vereadores como indicações, projetos de lei, reuniões e serviços ao cidadão.]]></description>
+		<link>http://www.camaraitapetininga.sp.gov.br/noticias</link>
+		<lastBuildDate>Sun, 25 Oct 2026 17:13:03 -0300</lastBuildDate>
+		<generator>Joomla! - Open Source Content Management</generator>
+		<atom:link rel="self" type="application/rss+xml" href="http://www.camaraitapetininga.sp.gov.br/noticias?format=feed&amp;type=rss"/>
+		<language>pt-br</language>
+		<item>
+			<title>Comunicado sobre o Período Eleitoral</title>
+			<link>http://www.camaraitapetininga.sp.gov.br/noticias/comunicado-sobre-o-periodo-eleitoral</link>
+			<guid isPermaLink="true">http://www.camaraitapetininga.sp.gov.br/noticias/comunicado-sobre-o-periodo-eleitoral</guid>
+			<description><![CDATA[<p><img src="http://www.camaraitapetininga.sp.gov.br/images/periodo_eleitoral.jpeg" alt="" width="800" height="510" loading="lazy"></p><div dir="ltr" style="text-align: justify;">
+<p class="MsoNormal" style="text-align: justify;">“Em atendimento à legislação vigente, as notícias do site permanecerão temporariamente indisponíveis durante o período eleitoral”<u></u></p>
+Resolução TSE nº 23.760/2026 — Calendário Eleitoral das Eleições 2026<br><a href="https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026&amp;source=gmail&amp;ust=1783020849567000&amp;usg=AOvVaw2j7qVnXSzYqt-KyYdOpZ15" rel="noopener">https://www.tse.jus.br/<wbr>legislacao/compilada/res/2026/<wbr>resolucao-no-23-760-de-2-de-<wbr>marco-de-2026</a></div>]]></description>
+			<category>Notícias</category>
+			<pubDate>Wed, 01 Jul 2026 19:44:45 -0300</pubDate>
+		</item>
+	</channel>
+</rss>

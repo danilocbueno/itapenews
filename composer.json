@@ -1,0 +1,64 @@
+{
+    "name": "itapenews/itapenews",
+    "description": "Agregador de notícias de Itapetininga-SP: coleta fontes locais e gera um site estático.",
+    "keywords": [
+        "itapetininga",
+        "noticias",
+        "agregador",
+        "rss",
+        "laravel-zero"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "illuminate/http": "^13.0",
+        "illuminate/view": "^13.0",
+        "laravel-zero/foundation": "^13.23",
+        "laravel-zero/framework": "^13.0",
+        "simplepie/simplepie": "^1.9",
+        "symfony/css-selector": "^8.1",
+        "symfony/dom-crawler": "^8.1"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.30.4",
+        "mockery/mockery": "^1.6.12",
+        "pestphp/pest": "^4.7.8 || ^5.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": [
+        "itape"
+    ],
+    "scripts": {
+        "test": "pest",
+        "lint": "pint --test",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    }
+}

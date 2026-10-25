@@ -1,0 +1,169 @@
+<?php
+
+namespace App\Site;
+
+use App\Data\Source;
+use App\Storage\ItemRepository;
+use App\Storage\JsonFile;
+use App\Storage\StateRepository;
+use Carbon\CarbonImmutable;
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Filesystem\Filesystem;
+
+/**
+ * Gera o site estático em build/: home, arquivo por dia, fontes e feed.
+ */
+final class SiteBuilder
+{
+    public function __construct(
+        private ViewFactory $views,
+        private Filesystem $files,
+    ) {}
+
+    /**
+     * @return array{pages: int, clusters: int, home: int}
+     */
+    public function build(string $dataPath, string $buildPath, CarbonImmutable $now): array
+    {
+        $items = new ItemRepository($dataPath.'/items');
+        $state = new StateRepository($dataPath.'/state.json');
+        $sources = Source::all();
+
+        $clusters = Timeline::clusters($items->all());
+        $days = Timeline::byDay($clusters);
+        $home = $this->homeClusters($clusters, $now);
+
+        $shared = [
+            'site' => config('itape.site'),
+            'sources' => $sources,
+            'now' => $now,
+            'problems' => $this->problems($sources, $state, $now),
+            'css' => $this->files->get(resource_path('assets/site.css')),
+            'js' => $this->files->get(resource_path('assets/site.js')),
+        ];
+
+        $this->files->ensureDirectoryExists($buildPath);
+        $this->files->cleanDirectory($buildPath);
+        $pages = 0;
+
+        $this->write($buildPath.'/index.html', 'home', [
+            ...$shared,
+            'days' => Timeline::byDay($home),
+            'weather' => JsonFile::read($dataPath.'/weather.json'),
+            'alerts' => JsonFile::read($dataPath.'/alerts.json')['alerts'] ?? [],
+            'activeSources' => $this->sourcesIn($home),
+        ]);
+        $pages++;
+
+        $dayKeys = array_keys($days);
+
+        foreach ($dayKeys as $i => $day) {
+            $this->write($buildPath.'/arquivo/'.str_replace('-', '/', $day).'/index.html', 'archive-day', [
+                ...$shared,
+                'day' => $day,
+                'date' => CarbonImmutable::parse($day, $now->getTimezone()),
+                'clusters' => $days[$day],
+                'newer' => $dayKeys[$i - 1] ?? null,
+                'older' => $dayKeys[$i + 1] ?? null,
+            ]);
+            $pages++;
+        }
+
+        $months = [];
+
+        foreach ($days as $day => $dayClusters) {
+            $months[substr($day, 0, 7)][$day] = count($dayClusters);
+        }
+
+        $this->write($buildPath.'/arquivo/index.html', 'archive-index', [...$shared, 'months' => $months]);
+        $this->write($buildPath.'/fontes/index.html', 'sources', [
+            ...$shared,
+            'state' => $state->sources(),
+            'counts' => array_count_values(array_map(fn ($item) => $item->source, array_filter($items->all(), fn ($item) => ! $item->hidden))),
+        ]);
+        $this->write($buildPath.'/404.html', 'not-found', $shared);
+        $this->write($buildPath.'/feed.xml', 'feed', [
+            ...$shared,
+            'clusters' => array_slice($clusters, 0, (int) config('itape.feed.items')),
+        ]);
+        $pages += 4;
+
+        $this->files->put($buildPath.'/.nojekyll', '');
+        $this->files->put($buildPath.'/robots.txt', "User-agent: *\nAllow: /\n");
+
+        if ($domain = config('itape.site.domain')) {
+            $this->files->put($buildPath.'/CNAME', $domain."\n");
+        }
+
+        return ['pages' => $pages, 'clusters' => count($clusters), 'home' => count($home)];
+    }
+
+    /**
+     * Últimos N dias; em períodos fracos, completa até um mínimo de notícias.
+     *
+     * @param  list<Cluster>  $clusters
+     * @return list<Cluster>
+     */
+    private function homeClusters(array $clusters, CarbonImmutable $now): array
+    {
+        $from = $now->startOfDay()->subDays((int) config('itape.home.days') - 1);
+        $recent = array_values(array_filter($clusters, fn (Cluster $c) => $c->date() >= $from));
+        $min = (int) config('itape.home.min_clusters');
+
+        return count($recent) >= $min ? $recent : array_slice($clusters, 0, $min);
+    }
+
+    /**
+     * Chaves das fontes presentes nos clusters (para os filtros da home).
+     *
+     * @param  list<Cluster>  $clusters
+     * @return list<string>
+     */
+    private function sourcesIn(array $clusters): array
+    {
+        $keys = [];
+
+        foreach ($clusters as $cluster) {
+            foreach ($cluster->sources() as $key) {
+                $keys[$key] = true;
+            }
+        }
+
+        return array_keys($keys);
+    }
+
+    /**
+     * Fontes com falhas seguidas ou sem coleta recente.
+     *
+     * @param  array<string, Source>  $sources
+     * @return list<string>
+     */
+    private function problems(array $sources, StateRepository $state, CarbonImmutable $now): array
+    {
+        $problems = [];
+
+        foreach ($sources as $key => $source) {
+            if (! $source->enabled) {
+                continue;
+            }
+
+            $info = $state->source($key);
+            $last = isset($info['last_success']) ? CarbonImmutable::parse($info['last_success']) : null;
+
+            if (($info['errors'] ?? 0) >= 3 || ($last !== null && $last->lessThan($now->subHours(3)))) {
+                $problems[] = $source->short;
+            }
+        }
+
+        return $problems;
+    }
+
+    /**
+     * @param  array<string, mixed>  $data
+     */
+    private function write(string $path, string $view, array $data): void
+    {
+        $this->files->ensureDirectoryExists(dirname($path));
+        $this->files->put($path, $this->views->make($view, $data)->render());
+    }
+}

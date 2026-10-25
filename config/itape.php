@@ -1,0 +1,74 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Site
+    |--------------------------------------------------------------------------
+    |
+    | Variáveis de ambiente permitem trocar nome, endereço e estatísticas sem
+    | mexer no código. No GitHub Actions, SITE_URL e SITE_BASE vêm do
+    | actions/configure-pages.
+    |
+    */
+
+    // "?:" porque variáveis não configuradas no GitHub chegam como string vazia.
+    'site' => [
+        'name' => env('SITE_NAME') ?: 'ItapeNews',
+        'tagline' => env('SITE_TAGLINE') ?: 'Todas as notícias de Itapetininga em um só lugar',
+        'url' => rtrim((string) (env('SITE_URL') ?: 'http://localhost:8000'), '/'),
+        'base' => rtrim((string) env('SITE_BASE'), '/'),
+        'domain' => env('SITE_DOMAIN') ?: null,
+        'contact' => env('SITE_CONTACT') ?: null,
+        'goatcounter' => env('GOATCOUNTER_CODE') ?: null,
+    ],
+
+    'paths' => [
+        'data' => env('ITAPE_DATA_PATH') ?: base_path('data'),
+        'build' => env('ITAPE_BUILD_PATH') ?: base_path('build'),
+    ],
+
+    'http' => [
+        'timeout' => 20,
+        'connect_timeout' => 10,
+        'concurrency' => 8,
+        // Vários sites (ex.: Xeh) recusam clientes que não parecem navegadores.
+        'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+            .'(KHTML, like Gecko) Chrome/130.0 Safari/537.36 ItapeNews/1.0 (+'.(env('SITE_URL') ?: 'https://github.com').')',
+    ],
+
+    'pipeline' => [
+        // Itens mais antigos que isso são ignorados na coleta.
+        'max_age_days' => 30,
+        // Máximo de páginas de notícia baixadas por execução para completar dados.
+        'enrich_limit' => 40,
+        'summary_length' => 240,
+        'cluster_window_hours' => 48,
+    ],
+
+    'home' => [
+        'days' => 3,
+        // Garante uma home cheia mesmo em períodos com poucas notícias.
+        'min_clusters' => 30,
+    ],
+
+    'feed' => [
+        'items' => 50,
+    ],
+
+    'weather' => [
+        'latitude' => -23.59,
+        'longitude' => -48.05,
+        'ttl_minutes' => 55,
+        'url' => 'https://api.open-meteo.com/v1/forecast',
+    ],
+
+    'alerts' => [
+        'url' => 'https://apiprevmet3.inmet.gov.br/avisos/rss',
+        // Nome da mesorregião do IBGE usada nos avisos do INMET.
+        'area' => 'Itapetininga',
+        'ttl_minutes' => 25,
+    ],
+
+];

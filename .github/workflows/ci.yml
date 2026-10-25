@@ -1,0 +1,35 @@
+name: Testes
+
+on:
+  pull_request:
+  # Chamado pelo workflow de publicação antes de cada deploy por push.
+  workflow_call:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, dom, xml, curl, iconv
+          coverage: none
+
+      - name: Cache do Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Formatação (Pint)
+        run: vendor/bin/pint --test
+
+      - name: Análise estática (Larastan)
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+
+      - name: Testes (Pest)
+        run: vendor/bin/pest
