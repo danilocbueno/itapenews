@@ -1,5 +1,29 @@
 [
     {
+        "id": "d493a72d2347ddf7",
+        "source": "g1",
+        "url": "https://g1.globo.com/sp/itapetininga-regiao/eleicoes/2026/noticia/2026/10/26/lula-amplia-votacao-em-cinco-cidades-da-regiao-de-itapetininga-no-2o-turno-veja-onde-houve-viradas.ghtml",
+        "title": "Lula amplia votação em cinco cidades da região de Itapetininga no 2º turno; veja onde houve viradas",
+        "summary": "O presidente Luiz Inácio Lula da Silva (PT), reeleito neste domingo (25), venceu em cinco municípios da região de Itapetininga (SP) no segundo turno das eleições de 2026. No primeiro turno, o petista havia sido o mais votado em duas…",
+        "image": "https://s2-g1.glbimg.com/gmrRdR5QCalYEFWi0p_MwIa6cAA=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/9/P/qLBOsnSqCOFrOu9I31Iw/lula-e-flavio-bolsonaro-creditos-charles-vieira-e-ricardo-stuckert.jpg",
+        "published_at": "2026-10-26T19:32:43-03:00",
+        "collected_at": "2026-10-26T20:23:32-03:00",
+        "cluster": "d493a72d2347ddf7",
+        "hidden": false
+    },
+    {
+        "id": "c5da07b089807cd6",
+        "source": "jornal",
+        "url": "https://www.jornaldeitapetininga.com.br/noticias/flavio-bolsonaro-recebe-6675-dos-votos-em-itapetininga-no-2-turno",
+        "title": "Flávio Bolsonaro recebe 66,75% dos votos em Itapetininga no 2º turno",
+        "summary": "Itapetininga registrou 66,75% dos votos para Flávio Bolsonaro e 33,25% para Luiz Inácio Lula da Silva no segundo turno das eleições presidenciais, realizado neste domingo (25). Flávio recebeu 59.460 votos, enquanto Lula somou 29.616 votos…",
+        "image": "https://www.jornaldeitapetininga.com.br/arquivos_personalizados/uploads/noticias/fotos/flavio-bolsonaro-recebe-6675-dos-votos-no-2o-turno-em-itapetininga-60916e1998.png",
+        "published_at": "2026-10-26T18:24:34-03:00",
+        "collected_at": "2026-10-26T20:23:32-03:00",
+        "cluster": "4498e3812e4c1b03",
+        "hidden": false
+    },
+    {
         "id": "3d96a0a3266bb0c0",
         "source": "prefeitura",
         "url": "https://www.itapetininga.sp.gov.br/noticia/10978/itapetininga-realiza-o-2-festival-kids-de-atletismo-da-prefeitura-em-parceria-o-sesi/",
@@ -69,6 +93,18 @@
         "published_at": "2026-10-26T16:45:06-03:00",
         "collected_at": "2026-10-26T16:45:06-03:00",
         "cluster": "305c77be37e6ef96",
+        "hidden": false
+    },
+    {
+        "id": "68819b3e33543d45",
+        "source": "correio",
+        "url": "https://correiodeitapetininga.com.br/noticia/80795/nadadores-de-itapetininga-conquistam-22-podios-no-torneio-regional-em-bauru",
+        "title": "Nadadores de Itapetininga conquistam 22 pódios no Torneio Regional em Bauru",
+        "summary": "A equipe de natação da S.E.A Itapetiningana e da Prefeitura de Itapetininga, por meio da Secretaria de Esporte, Lazer e Juventude conquistaram 22 pódios no 8º T...",
+        "image": "https://correiodeitapetininga.com.br/api/share-image/report/80795?v=Banner_42981d18-190b-463a-bbe3-1198afd34994_20261026193141.jpg",
+        "published_at": "2026-10-26T15:41:00-03:00",
+        "collected_at": "2026-10-26T20:23:32-03:00",
+        "cluster": "084a04ba39410e1a",
         "hidden": false
     },
     {
