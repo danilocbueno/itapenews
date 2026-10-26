@@ -1,5 +1,29 @@
 [
     {
+        "id": "4498e3812e4c1b03",
+        "source": "g1",
+        "url": "https://g1.globo.com/sp/itapetininga-regiao/eleicoes/2026/noticia/2026/10/25/votacao-2o-turno-itapetininga.ghtml",
+        "title": "Flávio Bolsonaro é o mais votado em Itapetininga com 66,75% dos votos válidos; Lula tem 33,25%",
+        "summary": "Mais de 114 mil eleitores de Itapetininga (SP) estavam aptos a votar neste domingo (25) na escolha do novo presidente na votação do 2º turno das Eleições 2026. A cidade conta com 386 seções eleitores. O candidato Flávio Bolsonaro (PL)…",
+        "image": "https://s2-g1.glbimg.com/5OgSFHs8w98pHLIhaOwds-jQLdA=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/B/p/AlFUBARqqOUIk5kqp5BQ/whatsapp-image-2026-10-25-at-09.11.47.jpeg",
+        "published_at": "2026-10-25T21:31:13-03:00",
+        "collected_at": "2026-10-25T22:28:58-03:00",
+        "cluster": "4498e3812e4c1b03",
+        "hidden": false
+    },
+    {
+        "id": "17e1c2eb94487d50",
+        "source": "jornal",
+        "url": "https://www.jornaldeitapetininga.com.br/noticias/lula-e-reeleito-presidente-do-brasil",
+        "title": "Lula é reeleito presidente do Brasil",
+        "summary": "Luiz Inácio Lula da Silva (PT) é reeleito presidente do Brasil após a apuração dos votos do segundo turno das eleições de 2026. O resultado confirma a escolha dos eleitores para o comando do país pelos próximos quatro anos, a partir de…",
+        "image": "https://www.jornaldeitapetininga.com.br/arquivos_personalizados/uploads/noticias/fotos/lula-e-reeleito-presidente-do-brasil-62c9485771.png",
+        "published_at": "2026-10-25T21:16:25-03:00",
+        "collected_at": "2026-10-25T22:28:58-03:00",
+        "cluster": "17e1c2eb94487d50",
+        "hidden": false
+    },
+    {
         "id": "517ae9708e97dc9e",
         "source": "folha",
         "url": "https://www.folhadeitapetininga.com.br/noticias/default.asp?id=1889",
