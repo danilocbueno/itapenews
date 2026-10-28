@@ -1,5 +1,41 @@
 [
     {
+        "id": "b6937aa058f22cd0",
+        "source": "prefeitura",
+        "url": "https://www.itapetininga.sp.gov.br/noticia/10980/poupatempo-fecha-na-segunda-feira-2-devido-ao-feriado-de-finados/",
+        "title": "Poupatempo fecha na segunda-feira (2) devido ao feriado d...",
+        "summary": "Os postos do Poupatempo em todo o Estado estarão fechados na segunda-feira, dia 2 de novembro, feriado de Finados. O atendimento presencial será retomado na terça-feira (3), nos horários habituais de cada unidade.",
+        "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/5693961db18ac2670797114e646ecf7d.webp",
+        "published_at": "2026-10-28T12:44:10-03:00",
+        "collected_at": "2026-10-28T12:44:10-03:00",
+        "cluster": "b6937aa058f22cd0",
+        "hidden": false
+    },
+    {
+        "id": "7b6366b4be2d1473",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/caminhao-tomba-na-rodovia-francisco-da-silva-pontes-em-itapetininga/",
+        "title": "Caminhão tomba na Rodovia Francisco da Silva Pontes, em Itapetininga",
+        "summary": "Motorista não se feriu após perder o controle da direção e atingir a defensa metálica central; trecho já foi liberado",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/10/TVS-SBT-NOTICIAS-90.jpg",
+        "published_at": "2026-10-28T08:37:33-03:00",
+        "collected_at": "2026-10-28T12:44:10-03:00",
+        "cluster": "7b6366b4be2d1473",
+        "hidden": false
+    },
+    {
+        "id": "9d7554352b765e49",
+        "source": "g1",
+        "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/10/28/organizacao-investiga-denuncia-de-injuria-racial-contra-menino-de-12-anos-em-partida-de-futsal-em-itapetininga.ghtml",
+        "title": "Organização investiga denúncia de injúria racial contra menino de 12 anos em partida de futsal em Itapetininga",
+        "summary": "A organização de um campeonato de futsal feito entre escolas particulares de Itapetininga (SP) investiga uma denúncia de injúria racial cometida contra um atleta de 12 anos durante uma partida. O caso ocorreu em 2 de outubro, mas o g1 teve…",
+        "image": "https://s2-g1.glbimg.com/J3J-43OWR3fvLccpQHcyp0RzS6s=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/F/H/C6h83BT4KZW0jaUvFKEg/whatsapp-image-2026-06-16-at-14.42.45.jpeg",
+        "published_at": "2026-10-28T07:18:19-03:00",
+        "collected_at": "2026-10-28T12:44:10-03:00",
+        "cluster": "9d7554352b765e49",
+        "hidden": false
+    },
+    {
         "id": "9e2c6580cf1d578e",
         "source": "jornal",
         "url": "https://www.jornaldeitapetininga.com.br/noticias/grupos-de-whatsapp-divulgam-lista-de-empresas-de-direita-em-itapetininga",
