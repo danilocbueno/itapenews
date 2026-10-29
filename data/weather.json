@@ -1,9 +1,9 @@
 {
-    "fetched_at": "2026-10-29T16:13:57-03:00",
+    "fetched_at": "2026-10-29T20:19:51-03:00",
     "current": {
-        "temperature": 20.6,
-        "code": 51,
-        "time": "2026-10-29T16:00"
+        "temperature": 18.5,
+        "code": 53,
+        "time": "2026-10-29T20:15"
     },
     "daily": [
         {

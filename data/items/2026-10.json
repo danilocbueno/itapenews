@@ -1,5 +1,53 @@
 [
     {
+        "id": "d9db07d9d2c1bc3f",
+        "source": "prefeitura",
+        "url": "https://www.itapetininga.sp.gov.br/noticia/10988/emef-prof-maria-cecilia-rolim-nalesso-recebe-autor-e-ilustradora-do-livro-o-misterio-do-sumico-do-burrinho-cleitim-para-interacao-com-alunos/",
+        "title": "EMEF Profª Maria Cecília Rolim Nalesso recebe autor e ilu...",
+        "summary": "A leitura é a base de qualquer atividade pedagógica. Pensando nisso, os professores da EMEF Professora Maria Cecília Rolim Nalesso incentivam diariamente essa prática e convidam autores para conversar com as crianças.",
+        "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/a0c81b9827027d981d3736da11ecabce.webp",
+        "published_at": "2026-10-29T20:19:51-03:00",
+        "collected_at": "2026-10-29T20:19:51-03:00",
+        "cluster": "d9db07d9d2c1bc3f",
+        "hidden": false
+    },
+    {
+        "id": "29c6ce84c11d29e9",
+        "source": "prefeitura",
+        "url": "https://www.itapetininga.sp.gov.br/noticia/10987/programa-da-sabesp-cadastra-familias-no-bairro-rio-acima-para-melhorias-no-saneamento-basico-em-itapetininga/",
+        "title": "Programa da Sabesp cadastra famílias no bairro Rio Acima ...",
+        "summary": "A Prefeitura de Itapetininga, em parceria com a Sabesp, comunica aos moradores do bairro Rio Acima sobre uma ação destinada à melhoria das condições de saneamento nas propriedades rurais do município, com atenção às Unidades de Saneamento…",
+        "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/c226d9e9ffb8a75db7973121022329e4.webp",
+        "published_at": "2026-10-29T20:19:51-03:00",
+        "collected_at": "2026-10-29T20:19:51-03:00",
+        "cluster": "29c6ce84c11d29e9",
+        "hidden": false
+    },
+    {
+        "id": "d425c38e099b7e4e",
+        "source": "prefeitura",
+        "url": "https://www.itapetininga.sp.gov.br/noticia/10986/desfile-civico-na-rua-virgilio-de-rezende-celebra-os-256-anos-de-itapetininga/",
+        "title": "Desfile Cívico na rua Virgílio de Rezende celebra os 256 ...",
+        "summary": "Na próxima quinta-feira, dia 5 de novembro, a partir das 8h, a rua Virgílio de Rezende volta a ser o palco do tradicional Desfile Cívico, em comemoração ao Aniversário de 256 anos de Itapetininga.",
+        "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/e9d3cefe6ca699266d55f4f1d93b40f6.webp",
+        "published_at": "2026-10-29T20:19:51-03:00",
+        "collected_at": "2026-10-29T20:19:51-03:00",
+        "cluster": "d425c38e099b7e4e",
+        "hidden": false
+    },
+    {
+        "id": "2387f9ac249c9d4b",
+        "source": "tvsmais",
+        "url": "https://www.tvsmais.com.br/colisao-entre-caminhao-e-utilitario-interdita-trecho-de-rodovia-em-itapetininga/",
+        "title": "Colisão entre caminhão e utilitário interdita trecho de rodovia em Itapetininga",
+        "summary": "Acidente ocorreu na noite de segunda-feira (26), provocou quatro quilômetros de congestionamento e deixou duas pessoas ilesas",
+        "image": "https://www.tvsmais.com.br/wp-content/uploads/2026/10/imagem-capa-Site-6.png",
+        "published_at": "2026-10-29T16:15:33-03:00",
+        "collected_at": "2026-10-29T20:19:51-03:00",
+        "cluster": "985f67975864be3e",
+        "hidden": false
+    },
+    {
         "id": "4b6e3555170d9569",
         "source": "prefeitura",
         "url": "https://www.itapetininga.sp.gov.br/noticia/10985/pat-de-itapetininga-tem-266-vagas-de-emprego-na-proxima-terca-feira-03-de-novembro/",
