@@ -1,24 +1,24 @@
 {
     "sources": {
         "camara": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 10,
             "etag": null,
-            "last_modified": "Thu, 29 Oct 2026 06:15:24 GMT",
+            "last_modified": "Thu, 29 Oct 2026 13:30:24 GMT",
             "errors": 0,
             "last_error": null
         },
         "correio": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 25,
             "etag": null,
             "last_modified": null,
             "errors": 0,
             "last_error": null,
-            "last_new_at": "2026-10-28T17:35:46-03:00"
+            "last_new_at": "2026-10-29T10:30:27-03:00"
         },
         "folha": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 3,
             "etag": null,
             "last_modified": null,
@@ -26,26 +26,26 @@
             "last_error": null
         },
         "g1": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 100,
-            "etag": "\"128dcbf301045f89cde56159421401428250765c\"",
+            "etag": "\"a0fa90070a58a58fd22bf922d8607da179582bf9\"",
             "last_modified": null,
             "errors": 0,
             "last_error": null,
             "last_new_at": "2026-10-28T17:35:46-03:00"
         },
         "jornal": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 50,
             "etag": null,
             "last_modified": null,
             "errors": 0,
             "last_error": null,
-            "last_new_at": "2026-10-28T21:26:34-03:00",
+            "last_new_at": "2026-10-29T10:30:27-03:00",
             "last_error_at": "2026-10-27T05:12:29-03:00"
         },
         "prefeitura": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 7,
             "etag": null,
             "last_modified": null,
@@ -54,17 +54,17 @@
             "last_new_at": "2026-10-28T21:26:34-03:00"
         },
         "tvsmais": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 10,
             "etag": null,
-            "last_modified": "Thu, 29 Oct 2026 02:41:48 GMT",
+            "last_modified": "Thu, 29 Oct 2026 13:16:26 GMT",
             "errors": 0,
             "last_error": null,
             "last_new_at": "2026-10-29T03:15:28-03:00",
             "last_error_at": "2026-10-28T21:26:34-03:00"
         },
         "xeh": {
-            "last_success": "2026-10-29T03:15:28-03:00",
+            "last_success": "2026-10-29T10:30:27-03:00",
             "last_count": 10,
             "etag": null,
             "last_modified": "Wed, 16 Sep 2026 17:02:20 GMT",

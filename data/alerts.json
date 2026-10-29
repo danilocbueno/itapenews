@@ -1,5 +1,5 @@
 {
-    "fetched_at": "2026-10-29T03:15:28-03:00",
+    "fetched_at": "2026-10-29T10:30:27-03:00",
     "alerts": [
         {
             "event": "Chuvas Intensas",
@@ -8,7 +8,7 @@
             "start": "2026-10-30T00:00:00-03:00",
             "end": "2026-10-30T23:59:00-03:00",
             "description": "INMET publica aviso iniciando em: 30/10/2026 00:00. Chuva entre 20 e 30 mm/h ou até 50 mm/dia, ventos intensos (40-60 km/h). Baixo risco de corte de energia elétrica, queda de galhos de árvores, alagamentos e de descargas elétricas.",
-            "link": "https://avisos.inmet.gov.br/56210"
+            "link": "https://avisos.inmet.gov.br/56217"
         },
         {
             "event": "Tempestade",

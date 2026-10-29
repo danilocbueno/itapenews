@@ -1,5 +1,29 @@
 [
     {
+        "id": "418aeaf6c3841c8f",
+        "source": "jornal",
+        "url": "https://www.jornaldeitapetininga.com.br/noticias/corrida-de-rua-ganha-cada-vez-mais-espaco-no-brasil",
+        "title": "Corrida de rua ganha cada vez mais espaço no Brasil",
+        "summary": "A corrida de rua vem conquistando cada vez mais espaço no Brasil e movimentando um mercado que envolve atletas amadores, organizadores de eventos, assessorias esportivas e marcas ligadas ao esporte. O crescimento da modalidade também…",
+        "image": "https://www.jornaldeitapetininga.com.br/arquivos_personalizados/uploads/noticias/fotos/corrida-de-rua-ganha-cada-vez-mais-espaco-no-brasil-3648d6291c.jpg",
+        "published_at": "2026-10-29T09:55:52-03:00",
+        "collected_at": "2026-10-29T10:30:27-03:00",
+        "cluster": "418aeaf6c3841c8f",
+        "hidden": false
+    },
+    {
+        "id": "9b2c3d9fa2f0f1d7",
+        "source": "correio",
+        "url": "https://correiodeitapetininga.com.br/noticia/80803/confira-os-horarios-de-funcionamento-dos-cemiterios-de-itapetininga-no-dia-de-finados",
+        "title": "Confira os horários de funcionamento dos cemitérios de Itapetininga no Dia de Finados",
+        "summary": "Os cemitérios municipais São João Batista e do Santíssimo, em Itapetininga, funcionarão das 7h às 18h na próxima segunda-feira, dia 2 de novembro, feriado de Fi...",
+        "image": "https://correiodeitapetininga.com.br/api/share-image/report/80803?v=Banner_4f8b3501-5a8a-4ab6-b0e9-10f24692f0ef_20261028175138.jpg",
+        "published_at": "2026-10-29T09:00:00-03:00",
+        "collected_at": "2026-10-29T10:30:27-03:00",
+        "cluster": "9b2c3d9fa2f0f1d7",
+        "hidden": false
+    },
+    {
         "id": "57d658ef27d0be8c",
         "source": "prefeitura",
         "url": "https://www.itapetininga.sp.gov.br/noticia/10982/abre-e-fecha-dos-feriados-do-dia-do-servidor-publico-e-de-finados-entre-os-dias-30-de-outubro-e-02-de-novembro/",
