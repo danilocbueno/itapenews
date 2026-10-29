@@ -1,5 +1,29 @@
 [
     {
+        "id": "57d658ef27d0be8c",
+        "source": "prefeitura",
+        "url": "https://www.itapetininga.sp.gov.br/noticia/10982/abre-e-fecha-dos-feriados-do-dia-do-servidor-publico-e-de-finados-entre-os-dias-30-de-outubro-e-02-de-novembro/",
+        "title": "“Abre e fecha” dos feriados do Dia do Servidor Público e ...",
+        "summary": "A Prefeitura de Itapetininga informa o que \"Abre e Fecha\" dos feriados do Dia do Servidor Público (excepcionalmente transferido para o dia 30 de outubro) e Dia de Finados.",
+        "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/93b60482bbc3c42ba113724c894b13af.webp",
+        "published_at": "2026-10-28T21:26:34-03:00",
+        "collected_at": "2026-10-28T21:26:34-03:00",
+        "cluster": "57d658ef27d0be8c",
+        "hidden": false
+    },
+    {
+        "id": "844d729efdb7ddc5",
+        "source": "jornal",
+        "url": "https://www.jornaldeitapetininga.com.br/noticias/cpfl-santa-cruz-lanca-campanha-de-bonus-para-clientes",
+        "title": "CPFL Santa Cruz lança campanha de bônus para clientes",
+        "summary": "Clientes residenciais da CPFL Santa Cruz na região de Itapetininga podem acumular bônus por meio de uma nova campanha que oferece recompensas pela adesão a serviços digitais e pela realização de pagamentos. A promoção CPFL Vale Bônus segue…",
+        "image": "https://www.jornaldeitapetininga.com.br/arquivos_personalizados/uploads/noticias/fotos/cpfl-santa-cruz-lanca-campanha-de-bonus-para-clientes-cce0211a06.png",
+        "published_at": "2026-10-28T19:17:43-03:00",
+        "collected_at": "2026-10-28T21:26:34-03:00",
+        "cluster": "844d729efdb7ddc5",
+        "hidden": false
+    },
+    {
         "id": "105aa2510dc5a1c3",
         "source": "prefeitura",
         "url": "https://www.itapetininga.sp.gov.br/noticia/10981/pat-de-itapetininga-tem-280-vagas-de-emprego-nesta-quinta-feira-29/",
