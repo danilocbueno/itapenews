@@ -80,6 +80,20 @@ final class Timeline
     }
 
     /**
+     * Rótulo de dia da agenda: "Hoje", "Amanhã", "Sábado, 31/10".
+     */
+    public static function agendaDay(string $day, CarbonImmutable $now): string
+    {
+        $date = CarbonImmutable::parse($day, $now->getTimezone());
+
+        return match (true) {
+            $date->isSameDay($now) => 'Hoje',
+            $date->isSameDay($now->addDay()) => 'Amanhã',
+            default => self::WEEKDAYS[$date->dayOfWeek].', '.$date->format('d/m'),
+        };
+    }
+
+    /**
      * "sexta, 30/10".
      */
     public static function shortDate(CarbonImmutable $date): string

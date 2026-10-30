@@ -89,6 +89,16 @@ final class SiteBuilder
             $months[substr($day, 0, 7)][$day] = count($dayClusters);
         }
 
+        $events = Events::upcoming($clusters, $now, (int) config('itape.agenda.days'));
+        $eventDays = [];
+
+        foreach ($events as $event) {
+            $eventDays[$event->at->format('Y-m-d')][] = $event;
+        }
+
+        $this->write($buildPath.'/agenda/index.html', 'agenda', [...$shared, 'eventDays' => $eventDays]);
+        $pages++;
+
         $digest = Digest::select($clusters, $now);
         $this->write($buildPath.'/hoje/index.html', 'today', [
             ...$shared,

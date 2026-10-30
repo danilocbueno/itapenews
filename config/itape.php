@@ -59,6 +59,11 @@ return [
         'items' => 50,
     ],
 
+    'agenda' => [
+        // Quantos dias à frente a agenda mostra.
+        'days' => 14,
+    ],
+
     'theme_page' => [
         // Notícias mais recentes listadas em cada página de tema.
         'items' => 60,

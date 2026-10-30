@@ -330,6 +330,46 @@ it('leva ao resumo do dia pelo rodapé de todas as páginas', function () {
         ->and(built('fontes/index.html'))->toContain('href="/hoje/">Resumo do dia</a>');
 });
 
+it('gera a agenda com os próximos eventos agrupados por data', function () {
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    foreach ([
+        ['https://jornal.test/festival', 'Festival de música agita a Praça', 'O festival acontece no dia 31 de outubro, às 20h, na Praça.'],
+        ['https://jornal.test/feira', 'Feira de artesanato no Centro', 'A feira acontece no dia 27 de outubro na Praça.'],
+    ] as [$url, $title, $summary]) {
+        $item = new Item('jornal', $url, $title, $summary, publishedAt: CarbonImmutable::parse('2026-10-24 10:00'));
+        $item->cluster = $item->id();
+        $repository->add($item);
+    }
+    $repository->save();
+
+    $this->artisan('build')->assertSuccessful();
+    $page = built('agenda/index.html');
+
+    expect($page)->toContain('<h1 class="page-title">Agenda</h1>')
+        ->toContain('href="https://jornal.test/festival"')
+        ->toContain('20h')
+        ->toContain('Sábado, 31/10')
+        ->toContain('Terça, 27/10')
+        ->toContain('confira na notícia')
+        ->and(strpos($page, 'jornal.test/feira'))->toBeLessThan(strpos($page, 'jornal.test/festival'));
+});
+
+it('avisa quando não há eventos nos próximos dias', function () {
+    config(['itape.paths.data' => $this->tmp.'/vazio']);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('agenda/index.html'))->toContain('Nenhum evento encontrado para os próximos 14 dias.');
+});
+
+it('leva à agenda pela linha de assuntos e pelo rodapé', function () {
+    $this->artisan('build')->assertSuccessful();
+    $html = built('index.html');
+
+    expect(Str::between($html, '<nav class="topics"', '</nav>'))->toContain('href="/agenda/"')
+        ->and(Str::between($html, '<footer', '</footer>'))->toContain('href="/agenda/">Agenda</a>');
+});
+
 it('usa o caminho base do GitHub Pages nos links', function () {
     config(['itape.site.base' => '/itapenews']);
 

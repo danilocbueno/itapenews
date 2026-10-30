@@ -43,6 +43,7 @@
         @foreach ($themes as $slug => $theme)
           <a href="{{ $base }}/tema/{{ $slug }}/"@if (($currentTheme ?? null) === $slug) aria-current="page"@endif>{{ $theme['name'] }}</a>
         @endforeach
+        <a class="topics-agenda" href="{{ $base }}/agenda/"@if (($currentPage ?? null) === 'agenda') aria-current="page"@endif>Agenda</a>
       </nav>
     </div>
   </header>
@@ -56,6 +57,7 @@
       <nav>
         <a href="{{ $base }}/">Início</a>
         <a href="{{ $base }}/hoje/">Resumo do dia</a>
+        <a href="{{ $base }}/agenda/">Agenda</a>
         <a href="{{ $base }}/arquivo/">Arquivo</a>
         <a href="{{ $base }}/fontes/">Fontes</a>
         <a href="{{ $base }}/feed.xml">RSS</a>
