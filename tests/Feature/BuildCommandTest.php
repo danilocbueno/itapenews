@@ -74,6 +74,24 @@ it('mostra a situação das fontes', function () {
         ->toContain('<span class="ok">OK</span>');
 });
 
+it('mostra o cabeçalho de jornal com data por extenso e subtítulo', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))
+        ->toContain('class="masthead"')
+        ->toContain('Itapetininga, domingo, 25 de outubro de 2026')
+        ->toContain('Itape<em>News</em>')
+        ->toContain('Todas as notícias da cidade, num só lugar');
+});
+
+it('usa o nome configurado no cabeçalho, sem destacar parte dele', function () {
+    config(['itape.site.name' => 'Giro Itapê']);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->toContain('>Giro Itapê</a>');
+});
+
 it('publica as fontes no próprio site', function () {
     $this->artisan('build')->assertSuccessful();
 

@@ -16,7 +16,7 @@ return [
     // "?:" porque variáveis não configuradas no GitHub chegam como string vazia.
     'site' => [
         'name' => env('SITE_NAME') ?: 'ItapeNews',
-        'tagline' => env('SITE_TAGLINE') ?: 'Todas as notícias de Itapetininga em um só lugar',
+        'tagline' => env('SITE_TAGLINE') ?: 'Todas as notícias da cidade, num só lugar',
         'url' => rtrim((string) (env('SITE_URL') ?: 'http://localhost:8000'), '/'),
         'base' => rtrim((string) env('SITE_BASE'), '/'),
         'domain' => env('SITE_DOMAIN') ?: null,

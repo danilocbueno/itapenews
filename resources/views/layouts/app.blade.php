@@ -28,10 +28,17 @@
   @endif
 </head>
 <body>
-  <header class="top">
-    <div class="top-inner">
-      <a class="brand" href="{{ $base }}/">{{ $site['name'] }}</a>
-      <span class="updated">Atualizado <time datetime="{{ $now->toIso8601String() }}" data-rel>às {{ $now->format('H:i') }}</time></span>
+  @php($brand = preg_match('/^(.+?)(News)$/u', $site['name'], $parts) ? e($parts[1]).'<em>'.e($parts[2]).'</em>' : e($site['name']))
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-top">
+        <span>Itapetininga, {{ \App\Site\Timeline::longDate($now) }}</span>
+        <span>Atualizado <time datetime="{{ $now->toIso8601String() }}" data-rel>às {{ $now->format('H:i') }}</time></span>
+      </div>
+      <div class="masthead-title">
+        <a class="brand" href="{{ $base }}/">{!! $brand !!}</a>
+        <p class="tagline">{{ $site['tagline'] }}</p>
+      </div>
     </div>
   </header>
 

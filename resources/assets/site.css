@@ -59,21 +59,24 @@ a { color: inherit; }
 
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; }
 
-/* Cabeçalho */
-.top {
-  position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
-  border-bottom: 1px solid var(--line);
+/* Cabeçalho de jornal */
+.masthead-inner { max-width: 760px; margin: 0 auto; padding: 14px 16px 0; }
+.masthead-top {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  font-size: .72rem; letter-spacing: .03em; color: var(--muted); padding-bottom: 8px;
 }
-.top-inner {
-  max-width: 760px; margin: 0 auto; padding: 10px 16px;
-  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+.masthead-title {
+  border-top: 3px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 12px 0 10px; text-align: center;
 }
-.brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; text-decoration: none; }
-.brand span { color: var(--accent); }
-.updated { color: var(--muted); font-size: .8rem; white-space: nowrap; }
+.brand {
+  font-weight: 700; font-size: clamp(2.6rem, 11vw, 3.6rem); line-height: 1;
+  letter-spacing: -0.025em; text-decoration: none;
+}
+.brand em { font-style: italic; font-weight: 500; color: var(--accent); }
+.tagline {
+  margin: 6px 0 0; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
 
 /* Alertas do INMET */
 .alerts { display: grid; gap: 8px; margin-top: 16px; }
