@@ -4,6 +4,7 @@ use App\Sources\ParseException;
 use App\Weather\InmetAlerts;
 use App\Weather\OpenMeteo;
 use App\Weather\WeatherCode;
+use App\Weather\WeatherIcon;
 use Carbon\CarbonImmutable;
 
 function inmetItem(string $severity, string $start, string $end, string $areas, string $event = 'Tempestade', int $id = 1): string
@@ -110,5 +111,25 @@ describe('Previsão do tempo', function () {
     it('descreve os códigos WMO', function () {
         expect(WeatherCode::label(95))->toBe('Tempestade')
             ->and(WeatherCode::label(1234))->toBe('Sem dados');
+    });
+});
+
+describe('Ícones do tempo', function () {
+    it('escolhe o ícone pela condição', function (int $code, string $kind) {
+        expect(WeatherIcon::kind($code))->toBe($kind);
+    })->with([
+        [0, 'sun'], [1, 'sun'], [2, 'partly'], [3, 'cloud'], [45, 'fog'],
+        [53, 'rain'], [63, 'rain'], [81, 'rain'], [95, 'storm'], [99, 'storm'], [73, 'snow'],
+    ]);
+
+    it('usa nuvem quando o código é desconhecido', function () {
+        expect(WeatherIcon::kind(null))->toBe('cloud')
+            ->and(WeatherIcon::kind(1234))->toBe('cloud');
+    });
+
+    it('gera SVG decorativo, escondido de leitores de tela', function () {
+        expect(WeatherIcon::svg('rain'))->toStartWith('<svg')
+            ->toContain('aria-hidden="true"')
+            ->toContain('class="wx-icon wx-rain"');
     });
 });

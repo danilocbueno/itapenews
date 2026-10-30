@@ -136,7 +136,10 @@ it('mostra a previsão um dia de cada vez, começando por hoje', function () {
         ->and($slides[0][1])->toBe(' is-active')
         ->and($slides[0][2])->toBe('')
         ->and($slides[1][2])->toBe(' hidden')
-        ->and($weather)->toContain('26° agora');
+        ->and($weather)->toContain('26° agora')
+        ->and(substr_count($weather, 'class="wx-icon wx-'))->toBeGreaterThanOrEqual(3)
+        ->and($weather)->toContain('wx-sun')
+        ->toContain('wx-rain');
 });
 
 it('mostra o aviso do INMET como faixa com rótulo', function () {

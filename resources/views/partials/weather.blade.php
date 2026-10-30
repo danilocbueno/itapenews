@@ -1,4 +1,5 @@
 @use('App\Weather\WeatherCode')
+@use('App\Weather\WeatherIcon')
 @use('App\Site\Timeline')
 @php($days = array_values(array_filter($weather['daily'] ?? [], fn ($day) => $day['date'] >= $now->format('Y-m-d'))))
 @if ($days)
@@ -7,17 +8,17 @@
   <section class="weather" aria-label="Previsão do tempo em Itapetininga" data-rotate>
     @foreach (array_slice($days, 0, 3) as $day)
       @php($today = $day['date'] === $now->format('Y-m-d'))
+      @php($code = $today && isset($current['code']) ? $current['code'] : $day['code'])
       <div class="weather-slide{{ $loop->first ? ' is-active' : '' }}"{{ $loop->first ? '' : ' hidden' }}>
         <b>{{ Timeline::shortDay($day['date'], $now) }}</b>
+        <span class="wx">{!! WeatherIcon::forCode($code) !!}</span>
         @if ($today && isset($current['temperature']))
           <span class="temp">{{ round($current['temperature']) }}° agora</span>
-          <span>{{ mb_strtolower(WeatherCode::label($current['code'] ?? null)) }}</span>
-        @else
-          <span>{{ mb_strtolower(WeatherCode::label($day['code'])) }}</span>
         @endif
-        <span>{{ round($day['max'] ?? 0) }}° / {{ round($day['min'] ?? 0) }}°</span>
+        <span>{{ mb_strtolower(WeatherCode::label($code)) }}</span>
+        <span class="wx">{!! WeatherIcon::svg('temp') !!}{{ round($day['max'] ?? 0) }}° / {{ round($day['min'] ?? 0) }}°</span>
         @if ($day['rain_probability'] !== null)
-          <span class="small">chuva {{ $day['rain_probability'] }}%</span>
+          <span class="wx small">{!! WeatherIcon::svg('drop') !!}chuva {{ $day['rain_probability'] }}%</span>
         @endif
       </div>
     @endforeach

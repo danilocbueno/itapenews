@@ -107,13 +107,19 @@ a { color: inherit; }
 .weather {
   /* Sem borda em cima: a linha dos filtros já separa. */
   padding: 10px 0; border-bottom: 1px solid var(--rule);
-  text-align: center; font-size: .85rem; min-height: 1.6em;
+  text-align: center; font-size: .85rem;
+  /* Altura de duas linhas: a alternância não faz a página pular. */
+  min-height: 4.75rem; display: flex; align-items: center; justify-content: center;
 }
 .weather-slide { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 10px; }
 .weather-slide[hidden] { display: none; }
 .weather-slide.is-active { animation: weather-in .4s ease; }
 .weather-slide b { font-weight: 700; }
 .weather-slide .temp { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; line-height: 1; }
+.wx { display: inline-flex; align-items: center; gap: 3px; }
+.wx-icon { flex: none; vertical-align: middle; }
+.wx > .wx-icon:not(.wx-temp):not(.wx-drop) { width: 24px; height: 24px; color: var(--accent); }
+.wx-temp, .wx-drop { width: 16px; height: 16px; color: var(--muted); }
 @keyframes weather-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .weather-slide.is-active { animation: none; } }
 
@@ -299,7 +305,7 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
     border-bottom: 1px solid var(--line);
   }
   .topbar .filters { grid-area: filters; margin: 0; padding: 10px 0; border-bottom: 0; }
-  .topbar .weather { grid-area: weather; margin: 0; padding: 0; border: 0; text-align: right; }
+  .topbar .weather { grid-area: weather; margin: 0; padding: 0; border: 0; text-align: right; min-height: 0; justify-content: flex-end; }
   .topbar .weather-slide { justify-content: flex-end; }
   .alert strong { display: inline; margin-right: 6px; }
 
