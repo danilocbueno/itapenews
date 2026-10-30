@@ -44,11 +44,30 @@ final class PageExtractor
 
         foreach ($candidates as $candidate) {
             if ($candidate !== '') {
-                return $candidate;
+                return $this->untruncate($crawler, $candidate);
             }
         }
 
         return '';
+    }
+
+    /**
+     * Alguns sites (ex.: Prefeitura) cortam o og:title com "...". Se a página
+     * tiver um título que começa igual e está completo, usa esse.
+     */
+    private function untruncate(Crawler $crawler, string $title): string
+    {
+        if (! preg_match('/^(.*?)\s*(\.\.\.|…)$/u', $title, $m) || mb_strlen($m[1]) < 10) {
+            return $title;
+        }
+
+        foreach ($this->nodes($crawler, 'h1, h2, h3') as $text) {
+            if (mb_strlen($text) > mb_strlen($m[1]) && str_starts_with($text, $m[1]) && ! preg_match('/(\.\.\.|…)$/u', $text)) {
+                return $text;
+            }
+        }
+
+        return $title;
     }
 
     private function summary(Crawler $crawler, ?string $selector): string

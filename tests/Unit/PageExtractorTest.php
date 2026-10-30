@@ -16,6 +16,22 @@ it('usa os seletores da Prefeitura para resumo e data', function () {
         ->and($meta->published->hasTime)->toBeFalse();
 });
 
+it('recupera o título completo quando o og:title vem cortado com reticências', function () {
+    $meta = (new PageExtractor)->extract(
+        fixtureContents('prefeitura-article-long-title.html'),
+        'https://www.itapetininga.sp.gov.br/noticia/10988/emef/',
+        source('prefeitura')->page,
+    );
+
+    expect($meta->title)->toBe('EMEF Profª Maria Cecília Rolim Nalesso recebe autor e ilustradora do livro “O Mistério do Sumiço do Burrinho Cleitim” para interação com alunos');
+});
+
+it('mantém o título cortado quando a página não tem a versão completa', function () {
+    $html = '<html><head><meta property="og:title" content="Título muito longo que foi cortado..."></head><body><h3>Notícias relacionadas</h3></body></html>';
+
+    expect((new PageExtractor)->extract($html, 'https://example.com/x')->title)->toBe('Título muito longo que foi cortado...');
+});
+
 it('lê título e resumo da Folha, que não tem data', function () {
     $meta = (new PageExtractor)->extract(fixtureContents('folha-article.html'), 'https://www.folhadeitapetininga.com.br/noticias/default.asp?id=1889', source('folha')->page);
 
