@@ -448,11 +448,14 @@ it('avisa quando não há eventos nos próximos dias', function () {
     expect(built('agenda/index.html'))->toContain('Nenhum evento encontrado para os próximos 14 dias.');
 });
 
-it('leva à agenda pela linha de assuntos e pelo rodapé', function () {
+it('leva à agenda pelo primeiro item da linha de assuntos e pelo rodapé', function () {
     $this->artisan('build')->assertSuccessful();
     $html = built('index.html');
 
-    expect(Str::between($html, '<nav class="topics"', '</nav>'))->toContain('href="/agenda/"')
+    $topics = Str::between($html, '<nav class="topics"', '</nav>');
+
+    expect($topics)->toContain('href="/agenda/"')
+        ->and(strpos($topics, 'href="/agenda/"'))->toBeLessThan(strpos($topics, 'href="/tema/empregos/"'))
         ->and(Str::between($html, '<footer', '</footer>'))->toContain('href="/agenda/">Agenda</a>');
 });
 

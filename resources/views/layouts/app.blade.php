@@ -39,10 +39,10 @@
         <p class="tagline">{{ $site['tagline'] }}</p>
       </div>
       <nav class="topics" aria-label="Assuntos">
+        <a class="topics-agenda" href="{{ $base }}/agenda/"@if (($currentPage ?? null) === 'agenda') aria-current="page"@endif>Agenda</a>
         @foreach ($themes as $slug => $theme)
           <a href="{{ $base }}/tema/{{ $slug }}/"@if (($currentTheme ?? null) === $slug) aria-current="page"@endif>{{ $theme['name'] }}</a>
         @endforeach
-        <a class="topics-agenda" href="{{ $base }}/agenda/"@if (($currentPage ?? null) === 'agenda') aria-current="page"@endif>Agenda</a>
       </nav>
     </div>
   </header>
