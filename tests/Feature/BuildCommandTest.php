@@ -366,7 +366,7 @@ it('leva ao resumo do dia pelo rodapé de todas as páginas', function () {
         ->and(built('fontes/index.html'))->toContain('href="/hoje/">Resumo do dia</a>');
 });
 
-it('gera a agenda com os próximos eventos agrupados por data', function () {
+it('gera a agenda com um card por evento: data, texto da notícia e link', function () {
     $repository = new ItemRepository(config('itape.paths.data').'/items');
     foreach ([
         ['https://jornal.test/festival', 'Festival de música agita a Praça', 'O festival acontece no dia 31 de outubro, às 20h, na Praça.'],
@@ -380,15 +380,21 @@ it('gera a agenda com os próximos eventos agrupados por data', function () {
 
     $this->artisan('build')->assertSuccessful();
     $page = built('agenda/index.html');
+    // A feira (27/10) vem antes; o festival (31/10) é o segundo card.
+    $festival = Str::before(explode('<article class="agenda-item', $page)[2] ?? '', '</article>');
 
     expect($page)->toContain('<h1 class="page-title">Agenda</h1>')
-        ->toContain('href="https://jornal.test/festival"')
-        ->toContain('20h')
-        ->toContain('Sábado, 31/10')
-        ->toContain('Terça, 27/10')
         ->toContain('confira na notícia')
-        ->toContain('<time class="agenda-time no-time"')
-        ->and(strpos($page, 'jornal.test/feira'))->toBeLessThan(strpos($page, 'jornal.test/festival'));
+        // Os dados de teste já trazem um evento real (Corrida da Prevenção) além dos dois criados aqui.
+        ->toContain(substr_count($page, '<article class="agenda-item').' eventos nos próximos 14 dias')
+        ->and(strpos($page, 'jornal.test/feira'))->toBeLessThan(strpos($page, 'jornal.test/festival'))
+        ->and($festival)->toContain('<span class="agenda-weekday">Sáb</span>')
+        ->toContain('<span class="agenda-day-number">31</span>')
+        ->toContain('<span class="agenda-month">out</span>')
+        ->toContain('20h')
+        ->toContain('O festival acontece no dia 31 de outubro')
+        ->toContain('Ler na fonte')
+        ->and($page)->toContain('horário a confirmar');
 });
 
 it('mostra os próximos eventos na home, logo depois da capa', function () {

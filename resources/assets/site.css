@@ -213,31 +213,45 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
 .bad { color: var(--accent); font-weight: 600; }
 .small { color: var(--muted); font-size: .8rem; }
 
-/* Agenda */
+/* Texto só para leitores de tela */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Agenda: um card por evento, com bloco de data em estilo folhinha */
 .topics-agenda { color: var(--accent); }
-.agenda-day h2 {
-  display: flex; align-items: center; gap: 10px; margin: 26px 0 4px;
-  font-style: italic; font-weight: 500; font-size: 1.3rem;
+.agenda-count {
+  margin: -6px 0 6px; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
 }
-.agenda-day h2::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
 .agenda-item {
-  display: grid; grid-template-columns: 64px minmax(0, 1fr) 84px; gap: 12px;
-  padding: 12px 0; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 60px minmax(0, 1fr); column-gap: 16px; row-gap: 12px;
+  grid-template-areas: "date thumb" "date body";
+  padding: 22px 0; border-bottom: 1px solid var(--line);
 }
-.agenda-item.noimg { grid-template-columns: 64px minmax(0, 1fr); }
-.agenda-thumb { width: 84px; height: 63px; overflow: hidden; background: var(--line); }
-.agenda-thumb img, .upcoming-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (min-width: 640px) {
-  .agenda-item { grid-template-columns: 92px minmax(0, 1fr) 150px; gap: 16px; }
-  .agenda-item.noimg { grid-template-columns: 92px minmax(0, 1fr); }
-  .agenda-thumb { width: 150px; height: 100px; }
-}
+.agenda-item.noimg { grid-template-areas: "date body"; }
 .agenda-item:last-child { border-bottom: 0; }
-.agenda-time { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
-.agenda-time.no-time { font-family: var(--sans); font-size: .72rem; font-weight: 500; line-height: 1.35; color: var(--muted); padding-top: 3px; }
-.agenda-item h3 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 600; line-height: 1.25; }
-.agenda-item h3 a { text-decoration: none; }
-.agenda-item h3 a:hover { text-decoration: underline; }
+.agenda-date {
+  grid-area: date; align-self: start; display: flex; flex-direction: column; align-items: center;
+  padding-top: 6px; border-top: 3px solid var(--rule); text-align: center;
+}
+.agenda-weekday, .agenda-month { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.agenda-date.is-soon { border-top-color: var(--accent); }
+.agenda-date.is-soon .agenda-weekday { color: var(--accent); }
+.agenda-day-number { font-family: var(--serif); font-size: 2.4rem; font-weight: 600; line-height: 1.05; }
+.agenda-thumb { grid-area: thumb; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--line); }
+.agenda-thumb img, .upcoming-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.agenda-body { grid-area: body; min-width: 0; }
+.agenda-body h2 { margin: 6px 0 6px; font-size: 1.4rem; font-weight: 600; line-height: 1.18; letter-spacing: -0.005em; }
+.agenda-body h2 a { text-decoration: none; }
+.agenda-body h2 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.agenda-body p { margin: 0 0 10px; color: var(--muted); font-size: .95rem; line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.agenda-link { font-size: .85rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.agenda-link:hover { text-decoration: underline; }
+@media (min-width: 640px) {
+  .agenda-item { grid-template-columns: 72px minmax(0, 1fr) 260px; column-gap: 24px; grid-template-areas: "date body thumb"; }
+  .agenda-item.noimg { grid-template-columns: 72px minmax(0, 1fr); grid-template-areas: "date body"; }
+  .agenda-thumb { aspect-ratio: 4 / 3; }
+  .agenda-day-number { font-size: 2.8rem; }
+}
 
 /* Próximos eventos na home */
 .upcoming { margin: 4px 0 22px; }

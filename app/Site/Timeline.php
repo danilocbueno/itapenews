@@ -94,6 +94,22 @@ final class Timeline
     }
 
     /**
+     * "Sáb", "Ter".
+     */
+    public static function weekdayShort(CarbonImmutable $date): string
+    {
+        return mb_substr(self::WEEKDAYS[$date->dayOfWeek], 0, 3);
+    }
+
+    /**
+     * "out", "nov".
+     */
+    public static function monthShort(CarbonImmutable $date): string
+    {
+        return mb_substr(self::MONTHS[$date->month], 0, 3);
+    }
+
+    /**
      * "sexta, 30/10".
      */
     public static function shortDate(CarbonImmutable $date): string

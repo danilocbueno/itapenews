@@ -91,13 +91,7 @@ final class SiteBuilder
             $months[substr($day, 0, 7)][$day] = count($dayClusters);
         }
 
-        $eventDays = [];
-
-        foreach ($events as $event) {
-            $eventDays[$event->at->format('Y-m-d')][] = $event;
-        }
-
-        $this->write($buildPath.'/agenda/index.html', 'agenda', [...$shared, 'eventDays' => $eventDays]);
+        $this->write($buildPath.'/agenda/index.html', 'agenda', [...$shared, 'events' => $events]);
         $pages++;
 
         $digest = Digest::select($clusters, $now);

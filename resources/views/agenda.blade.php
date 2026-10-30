@@ -5,30 +5,50 @@
 @section('path', '/agenda/')
 
 @section('content')
+  @php
+    $days = config('itape.agenda.days');
+  @endphp
   <h1 class="page-title">Agenda</h1>
-  <p class="page-lead">Eventos dos próximos {{ config('itape.agenda.days') }} dias anunciados nas notícias da cidade. As datas são identificadas automaticamente nos textos: confira na notícia antes de sair de casa.</p>
+  <p class="page-lead">Shows, festas, competições e outros eventos anunciados nas notícias da cidade. As datas são identificadas automaticamente nos textos: confira na notícia antes de sair de casa.</p>
+  <p class="agenda-count">{{ count($events) }} {{ count($events) === 1 ? 'evento' : 'eventos' }} nos próximos {{ $days }} dias</p>
 
-  @forelse ($eventDays as $day => $events)
-    <section class="agenda-day">
-      <h2>{{ \App\Site\Timeline::agendaDay($day, $now) }}</h2>
-      @foreach ($events as $event)
-        @php($item = $event->cluster->primary)
-        @php($image = $event->cluster->image())
-        <article class="agenda-item{{ $image ? '' : ' noimg' }}">
-          <time class="agenda-time{{ $event->hasTime ? '' : ' no-time' }}" datetime="{{ $event->at->toIso8601String() }}">{{ $event->hasTime ? $event->at->format($event->at->minute ? 'G\hi' : 'G\h') : 'horário a confirmar' }}</time>
-          <div>
-            <h3><a href="{{ $item->url }}" target="_blank" rel="noopener">{{ $item->title }}</a></h3>
-            <div class="kicker"><span class="kicker-source">{{ ($sources[$item->source] ?? null)?->short ?? $item->source }}</span></div>
-          </div>
-          @if ($image)
-            <a class="agenda-thumb" href="{{ $item->url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-              <img src="{{ $image }}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.agenda-item').classList.add('noimg'); this.parentNode.remove()">
-            </a>
-          @endif
-        </article>
-      @endforeach
-    </section>
+  @forelse ($events as $event)
+    @php
+      $item = $event->cluster->primary;
+      $image = $event->cluster->image();
+      $source = ($sources[$item->source] ?? null)?->short ?? $item->source;
+      $relative = match (true) {
+          $event->at->isSameDay($now) => 'Hoje',
+          $event->at->isSameDay($now->addDay()) => 'Amanhã',
+          default => null,
+      };
+    @endphp
+    <article class="agenda-item{{ $image ? '' : ' noimg' }}">
+      <div class="agenda-date{{ $relative ? ' is-soon' : '' }}" aria-hidden="true">
+        <span class="agenda-weekday">{{ $relative ?? \App\Site\Timeline::weekdayShort($event->at) }}</span>
+        <span class="agenda-day-number">{{ $event->at->format('j') }}</span>
+        <span class="agenda-month">{{ \App\Site\Timeline::monthShort($event->at) }}</span>
+      </div>
+      @if ($image)
+        <a class="agenda-thumb" href="{{ $item->url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="{{ $image }}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.agenda-item').classList.add('noimg'); this.parentNode.remove()">
+        </a>
+      @endif
+      <div class="agenda-body">
+        <div class="kicker">
+          <span class="kicker-source">{{ $source }}</span>
+          <span aria-hidden="true">·</span>
+          {{-- A data já está no bloco ao lado; aqui fica só o horário. --}}
+          <time datetime="{{ $event->at->toIso8601String() }}"><span class="visually-hidden">{{ \App\Site\Timeline::longDate($event->at) }}, </span>{{ $event->hasTime ? $event->at->format($event->at->minute ? 'G\hi' : 'G\h') : 'horário a confirmar' }}</time>
+        </div>
+        <h2><a href="{{ $item->url }}" target="_blank" rel="noopener">{{ $item->title }}</a></h2>
+        @if ($item->summary !== '')
+          <p>{{ $item->summary }}</p>
+        @endif
+        <a class="agenda-link" href="{{ $item->url }}" target="_blank" rel="noopener">Ler na fonte ({{ $source }}) →</a>
+      </div>
+    </article>
   @empty
-    <p class="empty">Nenhum evento encontrado para os próximos {{ config('itape.agenda.days') }} dias.</p>
+    <p class="empty">Nenhum evento encontrado para os próximos {{ $days }} dias.</p>
   @endforelse
 @endsection
