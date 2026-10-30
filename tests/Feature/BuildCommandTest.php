@@ -134,6 +134,16 @@ it('mostra vários avisos do INMET em uma faixa só', function () {
         ->and($html)->toContain('Chuvas intensas e tempestade na região de Itapetininga até hoje às 23h59.');
 });
 
+it('agrupa filtros, aviso e previsão no topo da home', function () {
+    $this->artisan('build')->assertSuccessful();
+    $topbar = Str::between(built('index.html'), '<div class="topbar">', '<!-- /topbar -->');
+
+    expect($topbar)
+        ->toContain('class="filters"')
+        ->toContain('class="alerts"')
+        ->toContain('class="weather"');
+});
+
 it('destaca só a primeira notícia da home', function () {
     $this->artisan('build')->assertSuccessful();
 

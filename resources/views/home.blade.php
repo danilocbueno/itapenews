@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="topbar">
   @if (count($activeSources) > 1)
     <div class="filters" role="toolbar" aria-label="Filtrar por fonte">
       <button class="chip" type="button" data-source="all" aria-pressed="true">Todas</button>
@@ -14,6 +15,7 @@
 
   @include('partials.alerts')
   @include('partials.weather')
+  </div><!-- /topbar -->
 
   @forelse ($days as $day => $clusters)
     <section class="day">

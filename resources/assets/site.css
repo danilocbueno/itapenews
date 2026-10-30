@@ -202,3 +202,27 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
   .lead .card-body { grid-row: 1; grid-column: 2; }
   .lead h3 { font-size: 2rem; }
 }
+
+/* Desktop largo: capa de jornal em grade (o celular não muda) */
+@media (min-width: 1024px) {
+  .wrap, .masthead-inner, .foot-inner { max-width: 1140px; }
+  .brand { font-size: 4rem; }
+
+  /* Topo compacto: filtros e previsão na mesma linha, aviso em faixa fina */
+  .topbar {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 24px;
+    grid-template-areas: "filters weather" "alerts alerts";
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .filters { grid-area: filters; margin: 0; padding: 10px 0; border-bottom: 0; }
+  .topbar .weather {
+    grid-area: weather; display: flex; gap: 18px; align-items: baseline;
+    margin: 0; border: 0; text-align: left; font-size: .82rem;
+  }
+  .topbar .weather-cell { display: block; padding: 0; }
+  .topbar .weather-cell + .weather-cell { border-left: 0; }
+  .topbar .weather-cell > * { display: inline; margin-right: 4px; }
+  .topbar .weather-now .temp { font-size: 1.4rem; }
+  .topbar .alerts { grid-area: alerts; margin: 4px 0 12px; }
+  .topbar .alert strong { display: inline; margin-right: 6px; }
+}
