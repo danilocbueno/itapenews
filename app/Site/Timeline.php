@@ -79,6 +79,14 @@ final class Timeline
         };
     }
 
+    /**
+     * "sexta, 30/10".
+     */
+    public static function shortDate(CarbonImmutable $date): string
+    {
+        return mb_strtolower(self::WEEKDAYS[$date->dayOfWeek]).', '.$date->format('d/m');
+    }
+
     public static function longDate(CarbonImmutable $date): string
     {
         return mb_strtolower(self::WEEKDAYS[$date->dayOfWeek]).', '.$date->day.' de '.self::MONTHS[$date->month].' de '.$date->year;
