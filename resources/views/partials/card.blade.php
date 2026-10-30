@@ -5,6 +5,7 @@
     $share = 'https://wa.me/?text='.rawurlencode($item->title.' '.$item->url);
     $lead = $lead ?? false;
     $side = $side ?? false;
+    $theme = \App\Site\Themes::primary($item);
 @endphp
 <article class="card{{ $lead ? ' lead' : '' }}{{ $side ? ' side' : '' }}{{ $image ? '' : ' noimg' }}" data-sources="{{ implode(' ', $cluster->sources()) }}">
   @if ($image)
@@ -15,6 +16,10 @@
   <div class="card-body">
     <div class="kicker">
       <span class="kicker-source">{{ $source?->short ?? $item->source }}</span>
+      @if ($theme && $theme !== ($currentTheme ?? null))
+        <span aria-hidden="true">·</span>
+        <a class="kicker-theme" href="{{ $site['base'] }}/tema/{{ $theme }}/">{{ $themes[$theme]['name'] }}</a>
+      @endif
       <span aria-hidden="true">·</span>
       <time datetime="{{ $item->date()->toIso8601String() }}" data-rel>{{ $item->date()->format('d/m H:i') }}</time>
       @if ($source?->official)

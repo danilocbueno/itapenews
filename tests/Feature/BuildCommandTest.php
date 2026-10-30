@@ -265,6 +265,26 @@ it('mostra a linha de assuntos em todas as páginas e marca o tema atual', funct
         ->and(built('tema/clima/index.html'))->toContain('href="/tema/clima/" aria-current="page"');
 });
 
+it('mostra o tema no card com link para a página do tema', function () {
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    foreach ([
+        ['https://jornal.test/acidente', 'Colisão entre caminhão e carro interdita rodovia em Itapetininga'],
+        ['https://jornal.test/cpfl', 'CPFL Santa Cruz lança campanha de bônus para clientes'],
+    ] as [$url, $title]) {
+        $item = new Item('jornal', $url, $title, publishedAt: CarbonImmutable::parse('2026-10-25 10:00'));
+        $item->cluster = $item->id();
+        $repository->add($item);
+    }
+    $repository->save();
+
+    $this->artisan('build')->assertSuccessful();
+    $card = fn (string $html, string $url) => Str::before(Str::afterLast(Str::before($html, 'href="'.$url.'"'), '<article'), '</article>');
+
+    expect($card(built('index.html'), 'https://jornal.test/acidente'))->toContain('<a class="kicker-theme" href="/tema/transito/">Trânsito</a>')
+        ->and($card(built('index.html'), 'https://jornal.test/cpfl'))->not->toContain('kicker-theme')
+        ->and($card(built('tema/transito/index.html'), 'https://jornal.test/acidente'))->not->toContain('kicker-theme');
+});
+
 it('avisa quando um tema ainda não tem notícias', function () {
     config(['itape.paths.data' => $this->tmp.'/vazio']);
 

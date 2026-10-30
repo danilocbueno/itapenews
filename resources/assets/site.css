@@ -138,6 +138,8 @@ a { color: inherit; }
   font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
 }
 .kicker-source { font-weight: 700; color: var(--accent); }
+.kicker-theme { font-weight: 600; color: var(--text); text-decoration: none; }
+.kicker-theme:hover { text-decoration: underline; }
 .official { font-weight: 600; color: var(--text); }
 .card h3 { margin: 4px 0; font-size: 1.2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.005em; }
 .card h3 a { text-decoration: none; }
