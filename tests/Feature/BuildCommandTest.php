@@ -74,6 +74,26 @@ it('mostra a situação das fontes', function () {
         ->toContain('<span class="ok">OK</span>');
 });
 
+it('publica as fontes no próprio site', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    foreach (['newsreader.woff2', 'newsreader-italic.woff2', 'ibm-plex-sans.woff2'] as $font) {
+        expect(config('itape.paths.build').'/assets/fonts/'.$font)->toBeFile();
+    }
+
+    expect(built('index.html'))
+        ->toContain('@font-face { font-family: "Newsreader"; src: url("/assets/fonts/newsreader.woff2")')
+        ->not->toContain('fonts.googleapis.com');
+});
+
+it('usa o caminho base do GitHub Pages também nas fontes', function () {
+    config(['itape.site.base' => '/itapenews']);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->toContain('url("/itapenews/assets/fonts/ibm-plex-sans.woff2")');
+});
+
 it('usa o caminho base do GitHub Pages nos links', function () {
     config(['itape.site.base' => '/itapenews']);
 

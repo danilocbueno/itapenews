@@ -88,6 +88,9 @@ final class SiteBuilder
         ]);
         $pages += 4;
 
+        // Fontes servidas pelo próprio site (sem enviar o IP dos visitantes a terceiros).
+        $this->files->copyDirectory(resource_path('assets/fonts'), $buildPath.'/assets/fonts');
+
         $this->files->put($buildPath.'/.nojekyll', '');
         $this->files->put($buildPath.'/robots.txt', "User-agent: *\nAllow: /\n");
 

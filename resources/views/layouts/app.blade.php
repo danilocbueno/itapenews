@@ -16,6 +16,12 @@
   <meta property="og:title" content="@yield('title', $site['name'])">
   <meta property="og:description" content="@yield('description', $site['tagline'])">
   <meta property="og:url" content="{{ $site['url'] }}@yield('path', '/')">
+  <link rel="preload" href="{{ $base }}/assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: "Newsreader"; src: url("{{ $base }}/assets/fonts/newsreader.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Newsreader"; src: url("{{ $base }}/assets/fonts/newsreader-italic.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+    @font-face { font-family: "IBM Plex Sans"; src: url("{{ $base }}/assets/fonts/ibm-plex-sans.woff2") format("woff2"); font-weight: 100 700; font-style: normal; font-display: swap; }
+  </style>
   <style>{!! $css !!}</style>
   @if ($site['goatcounter'])
     <script data-goatcounter="https://{{ $site['goatcounter'] }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
