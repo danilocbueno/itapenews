@@ -22,7 +22,10 @@
 
   @forelse ($days as $day => $clusters)
     <section class="day">
-      <h2 data-day="{{ $day }}">{{ \App\Site\Timeline::dayLabel($day, $now) }}</h2>
+      {{-- O primeiro dia abre com a capa, sem separador; os seguintes têm título. --}}
+      @unless ($loop->first)
+        <h2 data-day="{{ $day }}">{{ \App\Site\Timeline::dayLabel($day, $now) }}</h2>
+      @endunless
       @if ($loop->first)
         {{-- Capa: manchete e as duas notícias seguintes ao lado (lado a lado só no desktop) --}}
         <div class="front">

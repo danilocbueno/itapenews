@@ -35,7 +35,8 @@ it('mostra notícias, tempo, alerta e filtros na home', function () {
         ->toContain('class="weather"')
         ->toContain('class="alerts"')
         ->toContain('data-source="g1"')
-        ->toContain('<h2 data-day="2026-10-25">Hoje</h2>')
+        ->not->toContain('<h2 data-day="2026-10-25">')
+        ->toContain('<h2 data-day="2026-10-24">Ontem</h2>')
         ->toContain('referrerpolicy="no-referrer"')
         ->toContain('https://wa.me/?text=');
 });
