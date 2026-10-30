@@ -76,14 +76,15 @@ it('mostra a situação das fontes', function () {
         ->toContain('<span class="ok">OK</span>');
 });
 
-it('mostra o cabeçalho de jornal com data por extenso e subtítulo', function () {
+it('mostra o cabeçalho de jornal com o nome e o subtítulo, sem a linha de data', function () {
     $this->artisan('build')->assertSuccessful();
 
     expect(built('index.html'))
         ->toContain('class="masthead"')
-        ->toContain('Itapetininga, domingo, 25 de outubro de 2026')
         ->toContain('Itape<em>News</em>')
-        ->toContain('Todas as notícias da cidade, num só lugar');
+        ->toContain('Todas as notícias da cidade, num só lugar')
+        ->not->toContain('masthead-top')
+        ->not->toContain('Itapetininga, domingo, 25 de outubro de 2026');
 });
 
 it('usa o nome configurado no cabeçalho, sem destacar parte dele', function () {
@@ -134,14 +135,22 @@ it('mostra vários avisos do INMET em uma faixa só', function () {
         ->and($html)->toContain('Chuvas intensas e tempestade na região de Itapetininga até hoje às 23h59.');
 });
 
-it('agrupa filtros, aviso e previsão no topo da home', function () {
+it('agrupa filtros e previsão abaixo do cabeçalho', function () {
     $this->artisan('build')->assertSuccessful();
     $topbar = Str::between(built('index.html'), '<div class="topbar">', '<!-- /topbar -->');
 
     expect($topbar)
         ->toContain('class="filters"')
-        ->toContain('class="alerts"')
-        ->toContain('class="weather"');
+        ->toContain('class="weather"')
+        ->not->toContain('class="alerts"');
+});
+
+it('mostra o aviso do INMET no início da página, antes do cabeçalho', function () {
+    $this->artisan('build')->assertSuccessful();
+    $html = built('index.html');
+
+    expect(strpos($html, '<section class="alerts"'))->toBeLessThan(strpos($html, '<header class="masthead"'))
+        ->and(built('fontes/index.html'))->not->toContain('<section class="alerts"');
 });
 
 it('monta a capa com a manchete e duas notícias ao lado', function () {

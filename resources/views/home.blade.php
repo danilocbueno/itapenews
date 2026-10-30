@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('top')
+  @include('partials.alerts')
+@endsection
+
 @section('content')
   <div class="topbar">
   @if (count($activeSources) > 1)
@@ -13,7 +17,6 @@
     </div>
   @endif
 
-  @include('partials.alerts')
   @include('partials.weather')
   </div><!-- /topbar -->
 
