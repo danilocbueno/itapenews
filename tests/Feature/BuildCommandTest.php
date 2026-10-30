@@ -228,6 +228,51 @@ it('lista os dias do arquivo agrupados por mês', function () {
         ->toContain('href="/arquivo/2026/10/25/"');
 });
 
+it('gera uma página para cada tema', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    foreach (array_keys(config('themes')) as $slug) {
+        expect(config('itape.paths.build')."/tema/{$slug}/index.html")->toBeFile();
+    }
+});
+
+it('lista na página do tema só as notícias daquele assunto', function () {
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    foreach ([
+        ['https://jornal.test/acidente', 'Colisão entre caminhão e carro interdita rodovia em Itapetininga'],
+        ['https://jornal.test/teatro', 'Teatro Literário apresenta peça na Biblioteca Municipal'],
+    ] as [$url, $title]) {
+        $item = new Item('jornal', $url, $title, publishedAt: CarbonImmutable::parse('2026-10-25 10:00'));
+        $item->cluster = $item->id();
+        $repository->add($item);
+    }
+    $repository->save();
+
+    $this->artisan('build')->assertSuccessful();
+    $page = built('tema/transito/index.html');
+
+    expect($page)->toContain('<h1 class="page-title">Trânsito</h1>')
+        ->toContain('href="https://jornal.test/acidente"')
+        ->not->toContain('href="https://jornal.test/teatro"');
+});
+
+it('mostra a linha de assuntos em todas as páginas e marca o tema atual', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->toContain('<nav class="topics"')
+        ->toContain('href="/tema/obituarios/"')
+        ->and(built('fontes/index.html'))->toContain('<nav class="topics"')
+        ->and(built('tema/clima/index.html'))->toContain('href="/tema/clima/" aria-current="page"');
+});
+
+it('avisa quando um tema ainda não tem notícias', function () {
+    config(['itape.paths.data' => $this->tmp.'/vazio']);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('tema/esportes/index.html'))->toContain('Ainda não há notícias de esportes.');
+});
+
 it('usa o caminho base do GitHub Pages nos links', function () {
     config(['itape.site.base' => '/itapenews']);
 

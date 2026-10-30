@@ -38,6 +38,8 @@ final class SiteBuilder
             'sources' => $sources,
             'now' => $now,
             'problems' => $this->problems($sources, $state, $now),
+            'themes' => Themes::all(),
+            'currentTheme' => null,
             'css' => $this->files->get(resource_path('assets/site.css')),
             'js' => $this->files->get(resource_path('assets/site.js')),
         ];
@@ -65,6 +67,18 @@ final class SiteBuilder
                 'clusters' => $days[$day],
                 'newer' => $dayKeys[$i - 1] ?? null,
                 'older' => $dayKeys[$i + 1] ?? null,
+            ]);
+            $pages++;
+        }
+
+        foreach (Themes::all() as $slug => $theme) {
+            $themed = array_filter($clusters, fn (Cluster $c) => in_array($slug, Themes::for($c->primary), true));
+
+            $this->write($buildPath."/tema/{$slug}/index.html", 'theme', [
+                ...$shared,
+                'currentTheme' => $slug,
+                'theme' => $theme,
+                'clusters' => array_slice(array_values($themed), 0, (int) config('itape.theme_page.items')),
             ]);
             $pages++;
         }

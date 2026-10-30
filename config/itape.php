@@ -59,6 +59,11 @@ return [
         'items' => 50,
     ],
 
+    'theme_page' => [
+        // Notícias mais recentes listadas em cada página de tema.
+        'items' => 60,
+    ],
+
     'weather' => [
         'latitude' => -23.59,
         'longitude' => -48.05,
