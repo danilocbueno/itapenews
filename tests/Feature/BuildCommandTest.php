@@ -3,7 +3,9 @@
 use App\Data\Item;
 use App\Pipeline\Clusterer;
 use App\Storage\ItemRepository;
+use App\Storage\JsonFile;
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Str;
 
 beforeEach(function () {
     fakeSources();
@@ -90,6 +92,33 @@ it('usa o nome configurado no cabeçalho, sem destacar parte dele', function () 
     $this->artisan('build')->assertSuccessful();
 
     expect(built('index.html'))->toContain('>Giro Itapê</a>');
+});
+
+it('não mostra na previsão dias que já passaram', function () {
+    JsonFile::write(config('itape.paths.data').'/weather.json', [
+        'fetched_at' => '2026-10-24T20:00:00-03:00',
+        'current' => ['temperature' => 18.5, 'code' => 53, 'time' => '2026-10-24T20:00'],
+        'daily' => [
+            ['date' => '2026-10-24', 'max' => 21, 'min' => 16, 'rain' => 9, 'rain_probability' => 94, 'code' => 53],
+            ['date' => '2026-10-25', 'max' => 26, 'min' => 16, 'rain' => 4, 'rain_probability' => 83, 'code' => 3],
+            ['date' => '2026-10-26', 'max' => 25, 'min' => 16, 'rain' => 4, 'rain_probability' => 88, 'code' => 61],
+        ],
+    ]);
+
+    $this->artisan('build')->assertSuccessful();
+    $weather = Str::between(built('index.html'), 'class="weather"', '</section>');
+
+    expect($weather)->not->toContain('Sáb 24')
+        ->toContain('Hoje')
+        ->toContain('Amanhã')
+        ->toContain('26° / 16°');
+});
+
+it('mostra o aviso do INMET como faixa com rótulo', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(Str::between(built('index.html'), 'class="alerts"', '</section>'))
+        ->toContain('Aviso do INMET');
 });
 
 it('publica as fontes no próprio site', function () {

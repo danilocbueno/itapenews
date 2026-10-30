@@ -1,24 +1,19 @@
 @use('App\Weather\WeatherCode')
-@if (! empty($weather['daily']))
+@use('App\Site\Timeline')
+@php($days = array_values(array_filter($weather['daily'] ?? [], fn ($day) => $day['date'] >= $now->format('Y-m-d'))))
+@if ($days)
   @php($current = $weather['current'] ?? [])
   <section class="weather" aria-label="Previsão do tempo em Itapetininga">
-    <div class="weather-now">
-      <span class="icon" aria-hidden="true">{{ WeatherCode::icon($current['code'] ?? null) }}</span>
-      <div>
-        <div class="temp">{{ isset($current['temperature']) ? round($current['temperature']).'°' : '–' }}</div>
-        <div class="label">{{ WeatherCode::label($current['code'] ?? null) }}<br>Itapetininga</div>
+    <div class="weather-cell weather-now">
+      <span class="temp">{{ isset($current['temperature']) ? round($current['temperature']).'°' : '–' }}</span>
+      <span class="small">{{ mb_strtolower(WeatherCode::label($current['code'] ?? null)) }}</span>
+    </div>
+    @foreach (array_slice($days, 0, 3) as $day)
+      <div class="weather-cell" title="{{ WeatherCode::label($day['code']) }}">
+        <b>{{ Timeline::shortDay($day['date'], $now) }}</b>
+        <span>{{ round($day['max'] ?? 0) }}° / {{ round($day['min'] ?? 0) }}°</span>
+        <span class="small">{{ $day['rain_probability'] !== null ? 'chuva '.$day['rain_probability'].'%' : mb_strtolower(WeatherCode::label($day['code'])) }}</span>
       </div>
-    </div>
-    <div class="weather-days">
-      @foreach ($weather['daily'] as $day)
-        <div class="weather-day" title="{{ WeatherCode::label($day['code']) }}">
-          <b>{{ \App\Site\Timeline::shortDay($day['date'], $now) }}</b>
-          <span aria-hidden="true">{{ WeatherCode::icon($day['code']) }}</span>
-          {{ round($day['max'] ?? 0) }}° / {{ round($day['min'] ?? 0) }}°<br>
-          {{ $day['rain_probability'] !== null ? $day['rain_probability'].'%' : '' }}
-          {{ ($day['rain'] ?? 0) > 0 ? '· '.number_format($day['rain'], 0, ',', '.').' mm' : '' }}
-        </div>
-      @endforeach
-    </div>
+    @endforeach
   </section>
 @endif

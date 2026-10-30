@@ -10,12 +10,6 @@
   --rule: #1a1915;
   --accent: #b42318;
   --accent-soft: #f6e0dc;
-  --alert-1: #fde68a;
-  --alert-1-text: #713f12;
-  --alert-2: #fdba74;
-  --alert-2-text: #7c2d12;
-  --alert-3: #fca5a5;
-  --alert-3-text: #7f1d1d;
   --radius: 14px;
   --shadow: 0 1px 2px rgb(16 24 40 / 6%);
   color-scheme: light;
@@ -31,13 +25,7 @@
     --rule: #ede6d8;
     --accent: #f0786c;
     --accent-soft: #3a1f1b;
-    --alert-1: #4a3b0b;
-    --alert-1-text: #fde68a;
-    --alert-2: #4d2410;
-    --alert-2-text: #fdba74;
-    --alert-3: #4c1515;
-    --alert-3-text: #fca5a5;
-    --shadow: none;
+                --shadow: none;
     color-scheme: dark;
   }
 }
@@ -78,43 +66,37 @@ a { color: inherit; }
   margin: 6px 0 0; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
 }
 
-/* Alertas do INMET */
-.alerts { display: grid; gap: 8px; margin-top: 16px; }
-.alert {
-  display: block; padding: 10px 14px; border-radius: var(--radius); text-decoration: none;
-  font-size: .9rem; line-height: 1.35;
-}
-.alert strong { display: block; font-size: .95rem; }
-.alert-1 { background: var(--alert-1); color: var(--alert-1-text); }
-.alert-2 { background: var(--alert-2); color: var(--alert-2-text); }
-.alert-3 { background: var(--alert-3); color: var(--alert-3-text); }
-
-/* Tempo */
-.weather {
-  margin-top: 16px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); box-shadow: var(--shadow);
-  display: flex; align-items: center; gap: 16px; overflow-x: auto;
-}
-.weather-now { display: flex; align-items: center; gap: 8px; flex: none; }
-.weather-now .icon { font-size: 1.8rem; line-height: 1; }
-.weather-now .temp { font-size: 1.6rem; font-weight: 700; }
-.weather-now .label { color: var(--muted); font-size: .8rem; line-height: 1.2; }
-.weather-days { display: flex; gap: 14px; margin-left: auto; }
-.weather-day { text-align: center; font-size: .78rem; color: var(--muted); flex: none; }
-.weather-day b { display: block; color: var(--text); font-size: .85rem; }
-
-/* Filtros */
+/* Filtros: links de texto, sublinhado no ativo */
 .filters {
-  display: flex; gap: 6px; margin: 18px -16px 0; padding: 0 16px 4px;
-  overflow-x: auto; scrollbar-width: none;
+  display: flex; gap: 16px; padding: 10px 16px 8px; margin: 0 -16px;
+  border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none;
 }
 .filters::-webkit-scrollbar { display: none; }
 .chip {
-  flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--text);
-  padding: 6px 12px; border-radius: 999px; font: inherit; font-size: .85rem; cursor: pointer;
+  flex: none; border: 0; background: none; color: var(--text); padding: 4px 0;
+  font: inherit; font-size: .9rem; cursor: pointer; border-bottom: 2px solid transparent;
 }
-.chip[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
-.chip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--c); margin-right: 6px; }
+.chip:hover { border-bottom-color: var(--line); }
+.chip[aria-pressed="true"] { font-weight: 600; border-bottom-color: var(--rule); }
+
+/* Avisos do INMET: faixa vermelha */
+.alerts { display: grid; gap: 6px; margin-top: 14px; }
+.alert {
+  display: block; padding: 10px 12px; background: var(--accent); color: #fff;
+  text-decoration: none; font-size: .88rem; line-height: 1.35;
+}
+.alert strong { display: block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.alert:hover { filter: brightness(1.08); }
+
+/* Previsão: tabela entre fios */
+.weather {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
+  margin-top: 14px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  text-align: center; font-size: .8rem;
+}
+.weather-cell { display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 8px 4px; }
+.weather-cell + .weather-cell { border-left: 1px solid var(--line); }
+.weather-now .temp { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; line-height: 1; }
 
 /* Linha do tempo */
 .day h2 {
@@ -185,14 +167,6 @@ th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: u
 .foot-inner { max-width: 760px; margin: 0 auto; display: grid; gap: 8px; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 14px; }
 .warn { color: #b45309; }
-
-@media (max-width: 520px) {
-  .weather { flex-wrap: wrap; gap: 10px; }
-  .weather-days {
-    margin-left: 0; width: 100%; justify-content: space-between;
-    border-top: 1px solid var(--line); padding-top: 10px;
-  }
-}
 
 @media (min-width: 640px) {
   .card { grid-template-columns: 1fr 140px; padding: 16px; }

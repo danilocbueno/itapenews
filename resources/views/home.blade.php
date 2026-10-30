@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.alerts')
-  @include('partials.weather')
-
   @if (count($activeSources) > 1)
     <div class="filters" role="toolbar" aria-label="Filtrar por fonte">
       <button class="chip" type="button" data-source="all" aria-pressed="true">Todas</button>
       @foreach ($sources as $key => $source)
         @if (in_array($key, $activeSources, true))
-          <button class="chip" type="button" data-source="{{ $key }}" aria-pressed="false" style="--c: {{ $source->color }}"><i></i>{{ $source->short }}</button>
+          <button class="chip" type="button" data-source="{{ $key }}" aria-pressed="false">{{ $source->short }}</button>
         @endif
       @endforeach
     </div>
   @endif
+
+  @include('partials.alerts')
+  @include('partials.weather')
 
   @forelse ($days as $day => $clusters)
     <section class="day">
