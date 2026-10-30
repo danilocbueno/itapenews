@@ -1,11 +1,15 @@
+/* Identidade "jornal da cidade": papel, tinta e um vermelho de destaque. */
 :root {
-  --bg: #f6f7f9;
-  --surface: #ffffff;
-  --text: #16181d;
-  --muted: #5b6270;
-  --line: #e3e6eb;
-  --accent: #0f6b5c;
-  --accent-soft: #e3f2ef;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bg: #f3eee4;
+  --surface: #fbf8f2;
+  --text: #1a1915;
+  --muted: #5e5a52;
+  --line: #cfc6b6;
+  --rule: #1a1915;
+  --accent: #b42318;
+  --accent-soft: #f6e0dc;
   --alert-1: #fde68a;
   --alert-1-text: #713f12;
   --alert-2: #fdba74;
@@ -19,13 +23,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f1115;
-    --surface: #181b21;
-    --text: #e8eaee;
-    --muted: #9aa2b1;
-    --line: #2a2f38;
-    --accent: #5fd0b8;
-    --accent-soft: #15332d;
+    --bg: #15130f;
+    --surface: #1e1b16;
+    --text: #ede6d8;
+    --muted: #a8a091;
+    --line: #3a352c;
+    --rule: #ede6d8;
+    --accent: #f0786c;
+    --accent-soft: #3a1f1b;
     --alert-1: #4a3b0b;
     --alert-1-text: #fde68a;
     --alert-2: #4d2410;
@@ -45,8 +50,10 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font: 16px/1.5 var(--sans);
 }
+
+h1, h2, h3, .brand { font-family: var(--serif); }
 
 a { color: inherit; }
 
@@ -127,7 +134,7 @@ a { color: inherit; }
   font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
   background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 6px;
 }
-.card h3 { margin: 4px 0 4px; font-size: 1.02rem; line-height: 1.3; letter-spacing: -0.005em; }
+.card h3 { margin: 4px 0 4px; font-size: 1.2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.005em; }
 .card h3 a { text-decoration: none; }
 .card h3 a:hover { text-decoration: underline; }
 .card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.45;
@@ -187,5 +194,5 @@ th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: u
 @media (min-width: 640px) {
   .card { grid-template-columns: 1fr 140px; padding: 16px; }
   .thumb { width: 140px; height: 96px; }
-  .card h3 { font-size: 1.1rem; }
+  .card h3 { font-size: 1.3rem; }
 }
