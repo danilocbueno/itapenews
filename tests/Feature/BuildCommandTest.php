@@ -354,6 +354,32 @@ it('gera a agenda com os próximos eventos agrupados por data', function () {
         ->and(strpos($page, 'jornal.test/feira'))->toBeLessThan(strpos($page, 'jornal.test/festival'));
 });
 
+it('mostra os próximos eventos na home, logo depois da capa', function () {
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    $item = new Item('jornal', 'https://jornal.test/festival', 'Festival de música agita a Praça', 'O festival acontece no dia 31 de outubro, às 20h, na Praça.', publishedAt: CarbonImmutable::parse('2026-10-24 10:00'));
+    $item->cluster = $item->id();
+    $repository->add($item);
+    $repository->save();
+
+    $this->artisan('build')->assertSuccessful();
+    $html = built('index.html');
+    $block = Str::between($html, '<section class="upcoming"', '</section>');
+
+    expect($block)->toContain('Festival de música agita a Praça')
+        ->toContain('20h')
+        ->toContain('href="/agenda/"')
+        ->and(strpos($html, '<!-- /front -->'))->toBeLessThan(strpos($html, '<section class="upcoming"'));
+});
+
+it('não mostra o bloco de eventos na home quando não há eventos', function () {
+    // As cópias reais das fontes têm um evento (Corrida da Prevenção); aqui os dados ficam vazios.
+    config(['itape.paths.data' => $this->tmp.'/vazio']);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->not->toContain('<section class="upcoming"');
+});
+
 it('avisa quando não há eventos nos próximos dias', function () {
     config(['itape.paths.data' => $this->tmp.'/vazio']);
 

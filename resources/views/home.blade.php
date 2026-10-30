@@ -27,6 +27,19 @@
             @include('partials.card', ['lead' => $loop->first, 'side' => ! $loop->first])
           @endforeach
         </div><!-- /front -->
+        @if ($events)
+          <section class="upcoming" aria-label="Próximos eventos">
+            <h2>Próximos eventos</h2>
+            @foreach ($events as $event)
+              @php($item = $event->cluster->primary)
+              <a class="upcoming-item" href="{{ $item->url }}" target="_blank" rel="noopener">
+                <span class="upcoming-when">{{ \App\Site\Timeline::agendaDay($event->at->format('Y-m-d'), $now) }}@if ($event->hasTime) · {{ $event->at->format($event->at->minute ? 'G\hi' : 'G\h') }}@endif</span>
+                <span class="upcoming-title">{{ $item->title }}</span>
+              </a>
+            @endforeach
+            <a class="upcoming-more" href="{{ $site['base'] }}/agenda/">Ver agenda completa</a>
+          </section>
+        @endif
         @php($clusters = array_slice($clusters, 3))
       @endif
       <div class="cards">

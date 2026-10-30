@@ -32,6 +32,7 @@ final class SiteBuilder
         $clusters = Timeline::clusters($items->all());
         $days = Timeline::byDay($clusters);
         $home = $this->homeClusters($clusters, $now);
+        $events = Events::upcoming($clusters, $now, (int) config('itape.agenda.days'));
 
         $shared = [
             'site' => config('itape.site'),
@@ -54,6 +55,7 @@ final class SiteBuilder
             'weather' => JsonFile::read($dataPath.'/weather.json'),
             'alerts' => JsonFile::read($dataPath.'/alerts.json')['alerts'] ?? [],
             'activeSources' => $this->sourcesIn($home),
+            'events' => array_slice($events, 0, 3),
         ]);
         $pages++;
 
@@ -89,7 +91,6 @@ final class SiteBuilder
             $months[substr($day, 0, 7)][$day] = count($dayClusters);
         }
 
-        $events = Events::upcoming($clusters, $now, (int) config('itape.agenda.days'));
         $eventDays = [];
 
         foreach ($events as $event) {
