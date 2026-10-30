@@ -383,6 +383,7 @@ it('gera a agenda com os próximos eventos agrupados por data', function () {
         ->toContain('Sábado, 31/10')
         ->toContain('Terça, 27/10')
         ->toContain('confira na notícia')
+        ->toContain('<time class="agenda-time no-time"')
         ->and(strpos($page, 'jornal.test/feira'))->toBeLessThan(strpos($page, 'jornal.test/festival'));
 });
 
@@ -410,6 +411,33 @@ it('não mostra o bloco de eventos na home quando não há eventos', function ()
     $this->artisan('build')->assertSuccessful();
 
     expect(built('index.html'))->not->toContain('<section class="upcoming"');
+});
+
+it('mostra a imagem dos eventos na agenda e no bloco da home', function () {
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    foreach ([
+        ['https://jornal.test/festival', 'Festival de música agita a Praça', 'https://img.test/festival.jpg'],
+        ['https://jornal.test/feira', 'Feira de artesanato no Centro', null],
+    ] as [$url, $title, $image]) {
+        $item = new Item('jornal', $url, $title, 'O evento acontece no dia 31 de outubro, às 20h, na Praça.', $image, publishedAt: CarbonImmutable::parse('2026-10-24 10:00'));
+        $item->cluster = $item->id();
+        $repository->add($item);
+    }
+    $repository->save();
+
+    $this->artisan('build')->assertSuccessful();
+    // O <article> inteiro que contém o link da notícia.
+    $agendaItem = function (string $html, string $url): string {
+        $at = strpos($html, 'href="'.$url.'"');
+        $start = strrpos(substr($html, 0, $at), '<article');
+
+        return substr($html, $start, strpos($html, '</article>', $at) - $start);
+    };
+    $block = Str::between(built('index.html'), '<section class="upcoming"', '</section>');
+
+    expect($agendaItem(built('agenda/index.html'), 'https://jornal.test/festival'))->toContain('<img src="https://img.test/festival.jpg"')
+        ->and($agendaItem(built('agenda/index.html'), 'https://jornal.test/feira'))->not->toContain('<img')
+        ->and($block)->toContain('<img src="https://img.test/festival.jpg"');
 });
 
 it('avisa quando não há eventos nos próximos dias', function () {

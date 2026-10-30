@@ -35,9 +35,15 @@
             <h2>Próximos eventos</h2>
             @foreach ($events as $event)
               @php($item = $event->cluster->primary)
-              <a class="upcoming-item" href="{{ $item->url }}" target="_blank" rel="noopener">
-                <span class="upcoming-when">{{ \App\Site\Timeline::agendaDay($event->at->format('Y-m-d'), $now) }}@if ($event->hasTime) · {{ $event->at->format($event->at->minute ? 'G\hi' : 'G\h') }}@endif</span>
-                <span class="upcoming-title">{{ $item->title }}</span>
+              @php($image = $event->cluster->image())
+              <a class="upcoming-item{{ $image ? '' : ' noimg' }}" href="{{ $item->url }}" target="_blank" rel="noopener">
+                @if ($image)
+                  <span class="upcoming-thumb"><img src="{{ $image }}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.upcoming-item').classList.add('noimg'); this.parentNode.remove()"></span>
+                @endif
+                <span class="upcoming-text">
+                  <span class="upcoming-when">{{ \App\Site\Timeline::agendaDay($event->at->format('Y-m-d'), $now) }}@if ($event->hasTime) · {{ $event->at->format($event->at->minute ? 'G\hi' : 'G\h') }}@endif</span>
+                  <span class="upcoming-title">{{ $item->title }}</span>
+                </span>
               </a>
             @endforeach
             <a class="upcoming-more" href="{{ $site['base'] }}/agenda/">Ver agenda completa</a>
