@@ -6,7 +6,7 @@
 
 @section('content')
   <h1 class="page-title">{{ ucfirst(\App\Site\Timeline::longDate($date)) }}</h1>
-  <p class="lead">{{ count($clusters) }} {{ count($clusters) === 1 ? 'notícia' : 'notícias' }}</p>
+  <p class="page-lead">{{ count($clusters) }} {{ count($clusters) === 1 ? 'notícia' : 'notícias' }}</p>
 
   <div class="cards">
     @foreach ($clusters as $cluster)

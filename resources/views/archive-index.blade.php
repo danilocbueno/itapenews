@@ -5,7 +5,7 @@
 
 @section('content')
   <h1 class="page-title">Arquivo</h1>
-  <p class="lead">Notícias de Itapetininga por dia.</p>
+  <p class="page-lead">Notícias de Itapetininga por dia.</p>
 
   <div class="months">
     @forelse ($months as $month => $monthDays)

@@ -20,7 +20,7 @@
       <h2 data-day="{{ $day }}">{{ \App\Site\Timeline::dayLabel($day, $now) }}</h2>
       <div class="cards">
         @foreach ($clusters as $cluster)
-          @include('partials.card')
+          @include('partials.card', ['lead' => $loop->parent->first && $loop->first])
         @endforeach
       </div>
     </section>

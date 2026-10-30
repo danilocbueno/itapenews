@@ -121,6 +121,34 @@ it('mostra o aviso do INMET como faixa com rótulo', function () {
         ->toContain('Aviso do INMET');
 });
 
+it('destaca só a primeira notícia da home', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(substr_count(built('index.html'), 'class="card lead'))->toBe(1)
+        ->and(built('arquivo/2026/10/25/index.html'))->not->toContain('class="card lead');
+});
+
+it('não reaproveita a classe da manchete em outros elementos', function () {
+    $css = file_get_contents(resource_path('assets/site.css'));
+
+    // A classe .lead é só da manchete; um seletor solto ".lead {" pintaria a manchete de cinza.
+    expect($css)->not->toMatch('/^\.lead \{/m');
+});
+
+it('esconde o espaço da foto quando a imagem da fonte não carrega', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->toContain('onerror="this.closest(\'.card\').classList.add(\'noimg\'); this.parentNode.remove()"');
+});
+
+it('mostra fonte, horário e selo oficial na linha de contexto', function () {
+    $this->artisan('build')->assertSuccessful();
+    $html = built('index.html');
+
+    expect($html)->toContain('<span class="kicker-source">Prefeitura</span>')
+        ->toContain('<span class="official">oficial</span>');
+});
+
 it('publica as fontes no próprio site', function () {
     $this->artisan('build')->assertSuccessful();
 

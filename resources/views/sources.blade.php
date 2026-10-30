@@ -5,7 +5,7 @@
 
 @section('content')
   <h1 class="page-title">Fontes</h1>
-  <p class="lead">
+  <p class="page-lead">
     O {{ $site['name'] }} consulta estes veículos de hora em hora, das 7h às 23h, e mostra só o título, um trecho e o link para a notícia original.
     @if ($site['contact'])
       Se você é responsável por algum deles e quer ajustar ou remover a sua fonte, escreva para <a href="mailto:{{ $site['contact'] }}">{{ $site['contact'] }}</a>.
