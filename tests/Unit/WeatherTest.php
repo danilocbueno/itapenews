@@ -22,6 +22,32 @@ function inmetFeed(string ...$items): string
     return '<?xml version="1.0"?><rss version="2.0"><channel><title>INMET</title>'.implode('', $items).'</channel></rss>';
 }
 
+describe('Resumo dos avisos em uma faixa', function () {
+    it('junta os eventos, usa a maior severidade e o fim mais tardio', function () {
+        $summary = InmetAlerts::summarize([
+            ['event' => 'Chuvas Intensas', 'severity' => 'Perigo Potencial', 'level' => 1, 'start' => '2026-10-30T00:00:00-03:00', 'end' => '2026-10-30T23:59:00-03:00', 'description' => '', 'link' => 'https://avisos.inmet.gov.br/1'],
+            ['event' => 'Tempestade', 'severity' => 'Perigo', 'level' => 2, 'start' => '2026-10-30T00:00:00-03:00', 'end' => '2026-10-31T06:00:00-03:00', 'description' => '', 'link' => 'https://avisos.inmet.gov.br/2'],
+        ]);
+
+        expect($summary['events'])->toBe('Tempestade e chuvas intensas')
+            ->and($summary['severity'])->toBe('Perigo')
+            ->and($summary['level'])->toBe(2)
+            ->and($summary['end'])->toBe('2026-10-31T06:00:00-03:00')
+            ->and($summary['link'])->toBe('https://avisos.inmet.gov.br/2');
+    });
+
+    it('lista três ou mais eventos com vírgula e "e"', function () {
+        $alert = fn (string $event) => ['event' => $event, 'severity' => 'Perigo Potencial', 'level' => 1, 'start' => '2026-10-30T00:00:00-03:00', 'end' => '2026-10-30T23:59:00-03:00', 'description' => '', 'link' => 'x'];
+
+        expect(InmetAlerts::summarize([$alert('Chuvas Intensas'), $alert('Tempestade'), $alert('Vendaval')])['events'])
+            ->toBe('Chuvas intensas, tempestade e vendaval');
+    });
+
+    it('não gera faixa sem avisos', function () {
+        expect(InmetAlerts::summarize([]))->toBeNull();
+    });
+});
+
 describe('Alertas do INMET', function () {
     it('mantém só avisos vigentes para a mesorregião de Itapetininga', function () {
         $now = CarbonImmutable::parse('2026-10-24 12:00', 'America/Sao_Paulo');

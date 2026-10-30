@@ -87,6 +87,34 @@ final class InmetAlerts
     }
 
     /**
+     * Junta os avisos numa faixa única: eventos listados do mais severo ao
+     * menos severo, a maior severidade e o fim mais tardio.
+     *
+     * @param  list<array{event: string, severity: string, level: int, start: string, end: string, description: string, link: string}>  $alerts
+     * @return array{events: string, severity: string, level: int, end: string, link: string}|null
+     */
+    public static function summarize(array $alerts): ?array
+    {
+        if ($alerts === []) {
+            return null;
+        }
+
+        usort($alerts, fn (array $a, array $b) => $b['level'] <=> $a['level']);
+
+        $events = array_values(array_unique(array_map(fn (array $a) => mb_strtolower($a['event']), $alerts)));
+        $last = array_pop($events);
+        $list = $events === [] ? $last : implode(', ', $events).' e '.$last;
+
+        return [
+            'events' => mb_strtoupper(mb_substr($list, 0, 1)).mb_substr($list, 1),
+            'severity' => $alerts[0]['severity'],
+            'level' => $alerts[0]['level'],
+            'end' => max(array_column($alerts, 'end')),
+            'link' => $alerts[0]['link'],
+        ];
+    }
+
+    /**
      * A descrição é uma tabela HTML com pares <th>campo</th><td>valor</td>.
      *
      * @return array<string, string>

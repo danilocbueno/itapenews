@@ -121,6 +121,19 @@ it('mostra o aviso do INMET como faixa com rótulo', function () {
         ->toContain('Aviso do INMET');
 });
 
+it('mostra vários avisos do INMET em uma faixa só', function () {
+    JsonFile::write(config('itape.paths.data').'/alerts.json', ['fetched_at' => '2026-10-25T16:00:00-03:00', 'alerts' => [
+        ['event' => 'Chuvas Intensas', 'severity' => 'Perigo Potencial', 'level' => 1, 'start' => '2026-10-25T00:00:00-03:00', 'end' => '2026-10-25T23:59:00-03:00', 'description' => '', 'link' => 'https://avisos.inmet.gov.br/1'],
+        ['event' => 'Tempestade', 'severity' => 'Perigo Potencial', 'level' => 1, 'start' => '2026-10-25T00:00:00-03:00', 'end' => '2026-10-25T23:59:00-03:00', 'description' => '', 'link' => 'https://avisos.inmet.gov.br/2'],
+    ]]);
+
+    $this->artisan('build')->assertSuccessful();
+    $html = built('index.html');
+
+    expect(substr_count($html, 'class="alert '))->toBe(1)
+        ->and($html)->toContain('Chuvas intensas e tempestade na região de Itapetininga até hoje às 23h59.');
+});
+
 it('destaca só a primeira notícia da home', function () {
     $this->artisan('build')->assertSuccessful();
 
