@@ -105,7 +105,8 @@ a { color: inherit; }
 
 /* Previsão: um dia de cada vez, alternando (site.js) */
 .weather {
-  margin-top: 14px; padding: 10px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  /* Sem borda em cima: a linha dos filtros já separa. */
+  padding: 10px 0; border-bottom: 1px solid var(--rule);
   text-align: center; font-size: .85rem; min-height: 1.6em;
 }
 .weather-slide { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 10px; }
@@ -130,6 +131,8 @@ a { color: inherit; }
 .card:last-child { border-bottom: 0; }
 /* No celular a capa continua a lista: o último card dela mantém o fio. */
 .front > .card:last-child { border-bottom: 1px solid var(--line); }
+/* ...mas, se vier o bloco de eventos, o título dele já separa (sem linha dupla). */
+.front:has(+ .upcoming) > .card:last-child { border-bottom: 0; }
 .card[hidden] { display: none; }
 .card-body { grid-column: 1; grid-row: 1; min-width: 0; }
 .thumb { grid-column: 2; grid-row: 1; width: 96px; height: 72px; overflow: hidden; background: var(--line); align-self: start; }
@@ -231,7 +234,7 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
 .agenda-item h3 a:hover { text-decoration: underline; }
 
 /* Próximos eventos na home */
-.upcoming { margin: 6px 0 10px; padding: 12px 0 14px; border-bottom: 1px solid var(--rule); }
+.upcoming { margin: 4px 0 22px; }
 .upcoming h2 { margin: 0 0 6px; font-style: italic; font-weight: 500; font-size: 1.15rem; }
 .upcoming-item {
   display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; align-items: start;
@@ -243,6 +246,7 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
 .upcoming-item:hover .upcoming-title { text-decoration: underline; }
 .upcoming-when { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
 .upcoming-title { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; line-height: 1.25; }
+.upcoming-item:nth-last-child(2) { border-bottom: 0; }
 .upcoming-more { display: inline-block; margin-top: 10px; font-size: .85rem; }
 @media (min-width: 1024px) {
   .upcoming { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; column-gap: 28px; align-items: start; }
@@ -302,8 +306,9 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
   /* Capa: manchete em 2/3, duas notícias empilhadas no terço da direita */
   .front {
     display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: 32px;
-    padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid var(--line);
   }
+  .front:has(+ .upcoming) { border-bottom: 0; }
   .front .card.lead {
     grid-column: 1; grid-row: 1 / span 2; grid-template-columns: minmax(0, 1fr);
     gap: 6px 0; border-bottom: 0;
@@ -321,7 +326,10 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
   /* Demais notícias em grade de 3 colunas; sem foto, o resumo ocupa o lugar dela */
   .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
   .cards .card { grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px 0; }
+  /* Fio entre as fileiras, mas não depois da última (o separador do dia já divide). */
   .cards .card:last-child { border-bottom: 1px solid var(--line); }
+  .cards .card:nth-child(3n+1):nth-last-child(-n+3),
+  .cards .card:nth-child(3n+1):nth-last-child(-n+3) ~ .card { border-bottom: 0; }
   .cards .thumb { grid-row: 1; grid-column: 1; width: 100%; height: auto; aspect-ratio: 16 / 10; }
   .cards .card-body { grid-row: 2; grid-column: 1; }
   .cards .card h3 { font-size: 1.25rem; }
