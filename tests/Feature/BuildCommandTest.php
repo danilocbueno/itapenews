@@ -115,6 +115,29 @@ it('não mostra na previsão dias que já passaram', function () {
         ->toContain('26° / 16°');
 });
 
+it('mostra a previsão um dia de cada vez, começando por hoje', function () {
+    JsonFile::write(config('itape.paths.data').'/weather.json', [
+        'fetched_at' => '2026-10-25T16:00:00-03:00',
+        'current' => ['temperature' => 26.2, 'code' => 1, 'time' => '2026-10-25T16:00'],
+        'daily' => [
+            ['date' => '2026-10-25', 'max' => 26, 'min' => 16, 'rain' => 0, 'rain_probability' => 86, 'code' => 1],
+            ['date' => '2026-10-26', 'max' => 27, 'min' => 16, 'rain' => 4, 'rain_probability' => 88, 'code' => 53],
+            ['date' => '2026-10-27', 'max' => 25, 'min' => 15, 'rain' => 1, 'rain_probability' => 87, 'code' => 3],
+        ],
+    ]);
+
+    $this->artisan('build')->assertSuccessful();
+    $weather = Str::between(built('index.html'), 'class="weather"', '</section>');
+    preg_match_all('~<div class="weather-slide( is-active)?"( hidden)?>\s*<b>([^<]+)</b>~', $weather, $slides, PREG_SET_ORDER);
+
+    expect($weather)->toContain('data-rotate')
+        ->and(array_column($slides, 3))->toBe(['Hoje', 'Amanhã', 'Ter 27'])
+        ->and($slides[0][1])->toBe(' is-active')
+        ->and($slides[0][2])->toBe('')
+        ->and($slides[1][2])->toBe(' hidden')
+        ->and($weather)->toContain('26° agora');
+});
+
 it('mostra o aviso do INMET como faixa com rótulo', function () {
     $this->artisan('build')->assertSuccessful();
 

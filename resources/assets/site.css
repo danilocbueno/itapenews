@@ -103,15 +103,18 @@ a { color: inherit; }
 .alert strong { display: block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .alert:hover { filter: brightness(1.08); }
 
-/* Previsão: tabela entre fios */
+/* Previsão: um dia de cada vez, alternando (site.js) */
 .weather {
-  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
-  margin-top: 14px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  text-align: center; font-size: .8rem;
+  margin-top: 14px; padding: 10px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  text-align: center; font-size: .85rem; min-height: 1.6em;
 }
-.weather-cell { display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 8px 4px; }
-.weather-cell + .weather-cell { border-left: 1px solid var(--line); }
-.weather-now .temp { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; line-height: 1; }
+.weather-slide { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 10px; }
+.weather-slide[hidden] { display: none; }
+.weather-slide.is-active { animation: weather-in .4s ease; }
+.weather-slide b { font-weight: 700; }
+.weather-slide .temp { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; line-height: 1; }
+@keyframes weather-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .weather-slide.is-active { animation: none; } }
 
 /* Linha do tempo: notícias separadas por fios, como colunas de jornal */
 .day h2 {
@@ -279,14 +282,8 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
     border-bottom: 1px solid var(--line);
   }
   .topbar .filters { grid-area: filters; margin: 0; padding: 10px 0; border-bottom: 0; }
-  .topbar .weather {
-    grid-area: weather; display: flex; gap: 18px; align-items: baseline;
-    margin: 0; border: 0; text-align: left; font-size: .82rem;
-  }
-  .topbar .weather-cell { display: block; padding: 0; }
-  .topbar .weather-cell + .weather-cell { border-left: 0; }
-  .topbar .weather-cell > * { display: inline; margin-right: 4px; }
-  .topbar .weather-now .temp { font-size: 1.4rem; }
+  .topbar .weather { grid-area: weather; margin: 0; padding: 0; border: 0; text-align: right; }
+  .topbar .weather-slide { justify-content: flex-end; }
   .alert strong { display: inline; margin-right: 6px; }
 
   /* Capa: manchete em 2/3, duas notícias empilhadas no terço da direita */
