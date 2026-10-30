@@ -77,6 +77,9 @@ a { color: inherit; }
   font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
 }
 .topics::-webkit-scrollbar { display: none; }
+/* Centraliza quando cabe; quando não cabe, rola sem cortar o início. */
+.topics a:first-child { margin-left: auto; }
+.topics a:last-child { margin-right: auto; }
 .topics a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 .topics a:hover { border-bottom-color: var(--line); }
 .topics a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
