@@ -1,5 +1,17 @@
 [
     {
+        "id": "d4bf2fe31590b651",
+        "source": "g1",
+        "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/10/30/carreta-carregada-com-batatas-tomba-e-espalha-carga-em-rodovia-de-itapetininga.ghtml",
+        "title": "Carreta carregada com batatas tomba e espalha carga em rodovia de Itapetininga",
+        "summary": "Uma carreta carregada com batatas tombou e interditou parcialmente a Rodovia Antônio Romano Schincariol (SP-127), em Itapetininga (SP), no início da manhã desta sexta-feira (30). Segundo a Motiva SPVias, concessionária que administra o…",
+        "image": "https://s2-g1.glbimg.com/NJYM1kN9ABQhaGXlL0khxvjJ3TU=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/X/u/iXMu91QfyB0ww0Q47V1A/ilove-1-.jpg",
+        "published_at": "2026-10-30T17:39:11-03:00",
+        "collected_at": "2026-10-30T18:06:26-03:00",
+        "cluster": "d4bf2fe31590b651",
+        "hidden": false
+    },
+    {
         "id": "506dfe73d06bdda5",
         "source": "g1",
         "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/10/30/policia-apreende-drogas-e-prende-quatro-pessoas-em-operacao-perto-de-escola-em-itapetininga.ghtml",
@@ -2115,7 +2127,7 @@
         "id": "923eeef3e35890f7",
         "source": "prefeitura",
         "url": "https://www.itapetininga.sp.gov.br/noticia/10873/atividades-do-outubro-rosa-sao-realizadas-em-unidades-de-saude-de-itapetininga/",
-        "title": "Atividades do Outubro Rosa são realizadas em Unidades de ...",
+        "title": "Atividades do Outubro Rosa são realizadas em Unidades de Saúde de Itapetininga",
         "summary": "A Prefeitura de Itapetininga, por meio da Secretaria de Saúde informa as atividades programadas pelas unidades de saúde durante a campanha Outubro Rosa nas Unidades de Saúde de Itapetininga.",
         "image": "https://www.itapetininga.sp.gov.br/admin/globalarq/noticia/noticia/651_366/3e964851ba732870356508aa0b1d6feb.webp",
         "published_at": "2026-10-05T12:00:00-03:00",
