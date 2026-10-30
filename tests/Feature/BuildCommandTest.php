@@ -169,6 +169,26 @@ it('usa o caminho base do GitHub Pages também nas fontes', function () {
     expect(built('index.html'))->toContain('url("/itapenews/assets/fonts/ibm-plex-sans.woff2")');
 });
 
+it('mostra na página de fontes o erro de uma fonte que falhou', function () {
+    $state = JsonFile::read(config('itape.paths.data').'/state.json');
+    $state['sources']['jornal'] = [...$state['sources']['jornal'], 'errors' => 2, 'last_error' => 'HTTP 503'];
+    JsonFile::write(config('itape.paths.data').'/state.json', $state);
+
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('fontes/index.html'))
+        ->toContain('<span class="bad">Erro (2x)</span>')
+        ->toContain('HTTP 503');
+});
+
+it('lista os dias do arquivo agrupados por mês', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('arquivo/index.html'))
+        ->toContain('Outubro de 2026')
+        ->toContain('href="/arquivo/2026/10/25/"');
+});
+
 it('usa o caminho base do GitHub Pages nos links', function () {
     config(['itape.site.base' => '/itapenews']);
 

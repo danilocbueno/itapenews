@@ -16,7 +16,7 @@
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Fonte</th><th>Coleta</th><th>Situação</th><th>Notícias</th></tr>
+        <tr><th>Fonte</th><th>Situação</th><th class="num">Notícias</th></tr>
       </thead>
       <tbody>
         @foreach ($sources as $key => $source)
@@ -26,16 +26,16 @@
             <td>
               <a href="{{ $source->homepage }}" target="_blank" rel="noopener"><b>{{ $source->name }}</b></a>
               <div class="small">{{ $types[$source->type] }}{{ $source->filter ? ' · filtrada por "Itapetininga"' : '' }}</div>
-            </td>
-            <td>
-              @if (! empty($info['last_success']))
-                <time datetime="{{ $info['last_success'] }}" data-rel>{{ \Carbon\CarbonImmutable::parse($info['last_success'])->setTimezone($now->getTimezone())->format('d/m H:i') }}</time>
-              @else
-                <span class="small">nunca</span>
-              @endif
-              @if (! empty($info['last_new_at']))
-                <div class="small">última novidade: <time datetime="{{ $info['last_new_at'] }}" data-rel>{{ \Carbon\CarbonImmutable::parse($info['last_new_at'])->setTimezone($now->getTimezone())->format('d/m H:i') }}</time></div>
-              @endif
+              <div class="small">
+                @if (! empty($info['last_success']))
+                  coletada <time datetime="{{ $info['last_success'] }}" data-rel>{{ \Carbon\CarbonImmutable::parse($info['last_success'])->setTimezone($now->getTimezone())->format('d/m H:i') }}</time>
+                @else
+                  ainda não coletada
+                @endif
+                @if (! empty($info['last_new_at']))
+                  · última novidade <time datetime="{{ $info['last_new_at'] }}" data-rel>{{ \Carbon\CarbonImmutable::parse($info['last_new_at'])->setTimezone($now->getTimezone())->format('d/m H:i') }}</time>
+                @endif
+              </div>
             </td>
             <td>
               @if (($info['errors'] ?? 0) > 0)
@@ -47,7 +47,7 @@
                 <span class="small">aguardando</span>
               @endif
             </td>
-            <td>{{ $counts[$key] ?? 0 }}</td>
+            <td class="num">{{ $counts[$key] ?? 0 }}</td>
           </tr>
         @endforeach
       </tbody>
