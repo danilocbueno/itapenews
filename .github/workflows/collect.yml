@@ -1,9 +1,13 @@
 name: Coletar e publicar
 
 on:
+  # Horários em UTC (Brasília = UTC-3). As notícias saem entre 7h e 21h:
+  # de hora em hora das 7h às 23h, e às 2h e 5h só para os alertas do INMET.
+  # Minuto 17 porque o GitHub descarta mais execuções na virada da hora.
   schedule:
-    # O GitHub pode atrasar execuções agendadas em alguns minutos.
-    - cron: '*/15 * * * *'
+    - cron: '17 10-23 * * *'
+    - cron: '17 0-2 * * *'
+    - cron: '17 5,8 * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -50,7 +54,7 @@ jobs:
       - run: composer install --no-dev --no-interaction --prefer-dist --no-progress --optimize-autoloader
 
       # Estado das fontes (ETag, erros), tempo e alertas mudam a cada execução;
-      # ficam no cache para não gerar um commit a cada 15 minutos.
+      # ficam no cache para não gerar um commit a cada execução.
       - name: Restaurar estado da coleta
         uses: actions/cache/restore@v4
         with:

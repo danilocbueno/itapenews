@@ -70,6 +70,7 @@ it('mostra a situação das fontes', function () {
 
     expect(built('fontes/index.html'))
         ->toContain('Correio de Itapetininga')
+        ->toContain('de hora em hora, das 7h às 23h')
         ->toContain('<span class="ok">OK</span>');
 });
 

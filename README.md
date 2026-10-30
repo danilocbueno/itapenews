@@ -1,6 +1,6 @@
 # ItapeNews
 
-Agregador de notícias de Itapetininga-SP. A cada 15 minutos, coleta os veículos da cidade, junta as notícias repetidas e publica um site estático leve, feito para o celular, com previsão do tempo e alertas do INMET.
+Agregador de notícias de Itapetininga-SP. De hora em hora, coleta os veículos da cidade, junta as notícias repetidas e publica um site estático leve, feito para o celular, com previsão do tempo e alertas do INMET.
 
 O site mostra só título, um trecho e a foto de capa. Cada notícia leva ao site original.
 
@@ -23,7 +23,7 @@ Tudo fica em [`config/sources.php`](config/sources.php).
 ## Como funciona
 
 ```
-GitHub Actions (a cada 15 min)
+GitHub Actions (de hora em hora, 7h–23h; às 2h e 5h só para os alertas)
   php itape collect   → busca as fontes em paralelo, abre a página só das notícias novas
                         para completar foto/resumo/data, filtra, agrupa e grava data/
   php itape build     → gera build/ (home, arquivo por dia, fontes, feed.xml)
@@ -76,7 +76,7 @@ Os testes usam cópias reais das fontes em `tests/Fixtures/` e **nunca acessam a
 
 ## Publicando no GitHub Pages
 
-1. Crie um repositório **público** no GitHub e envie o código (`main`). Em repositório público, os minutos do Actions são ilimitados. Em um privado, rodar a cada 15 min passa da cota gratuita.
+1. Crie um repositório **público** no GitHub e envie o código (`main`). Em repositório público, os minutos do Actions são ilimitados. Em um privado, o GitHub Pages exige plano pago.
 2. Em **Settings → Pages**, escolha **Source: GitHub Actions**.
 3. (Opcional) Em **Settings → Secrets and variables → Actions → Variables**, configure:
    - `SITE_NAME`: nome do site (padrão: ItapeNews)
@@ -84,10 +84,10 @@ Os testes usam cópias reais das fontes em `tests/Fixtures/` e **nunca acessam a
    - `GOATCOUNTER_CODE`: código do [GoatCounter](https://www.goatcounter.com/) (ex.: `itapenews` para `itapenews.goatcounter.com`)
    - `SITE_CONTACT`: e-mail exibido em `/fontes/` para pedidos de remoção
    - `SITE_DOMAIN`: domínio próprio (ex.: `itapehoje.com.br`). Configure também o DNS e o campo *Custom domain* em Settings → Pages.
-4. Rode o workflow **Coletar e publicar** manualmente em **Actions** na primeira vez. Depois ele roda sozinho a cada 15 minutos e a cada push na `main` (só publica se os testes passarem).
+4. Rode o workflow **Coletar e publicar** manualmente em **Actions** na primeira vez. Depois ele roda sozinho nos horários agendados e a cada push na `main` (só publica se os testes passarem).
 
 Observações:
-- O GitHub pode atrasar execuções agendadas em alguns minutos.
+- O GitHub pode atrasar ou pular execuções agendadas quando está sobrecarregado. Com o agendamento antigo, a cada 15 min, ele rodava só uma vez a cada ~5 h. Por isso o agendamento atual pede menos execuções (19 por dia), fora da virada da hora. Se o atraso continuar alto, a alternativa é disparar o workflow por um agendador externo (ex.: cron-job.org) pela API do GitHub.
 - O GitHub desativa agendamentos de repositórios sem atividade por 60 dias. Os commits de coleta contam como atividade, mas, se o site ficar parado, reative em **Actions**.
 
 ## Estrutura
