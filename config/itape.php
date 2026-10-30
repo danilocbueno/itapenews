@@ -43,6 +43,8 @@ return [
         'max_age_days' => 30,
         // Máximo de páginas de notícia baixadas por execução para completar dados.
         'enrich_limit' => 40,
+        // Notícias salvas com título cortado reabertas por execução.
+        'repair_limit' => 10,
         'summary_length' => 240,
         'cluster_window_hours' => 48,
     ],

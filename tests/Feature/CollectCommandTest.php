@@ -1,6 +1,9 @@
 <?php
 
+use App\Data\Item;
+use App\Storage\ItemRepository;
 use App\Storage\JsonFile;
+use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Http;
 
 function storedItems(): array
@@ -122,4 +125,49 @@ it('usa ETag para não baixar de novo um feed sem mudanças', function () {
     $this->artisan('collect', ['--source' => ['g1'], '--skip-weather' => true])->assertSuccessful();
 
     Http::assertSent(fn ($request) => $request->hasHeader('If-None-Match', '"abc"'));
+});
+
+function seedItem(string $source, string $url, string $title, string $date = '2026-10-24 10:00'): void
+{
+    $repository = new ItemRepository(config('itape.paths.data').'/items');
+    $item = new Item($source, $url, $title, 'Resumo.', publishedAt: CarbonImmutable::parse($date), collectedAt: CarbonImmutable::parse($date));
+    $item->cluster = $item->id();
+    $repository->add($item);
+    $repository->save();
+}
+
+it('corrige títulos cortados de notícias já salvas', function () {
+    $url = 'https://www.itapetininga.sp.gov.br/noticia/10988/emef/';
+    seedItem('prefeitura', $url, 'EMEF Profª Maria Cecília Rolim Nalesso recebe autor e ilu...');
+    fakeSources(['www.itapetininga.sp.gov.br/noticia/10988/*' => fn () => Http::response(fixtureContents('prefeitura-article-long-title.html'))]);
+
+    $this->artisan('collect', ['--source' => ['prefeitura'], '--skip-weather' => true])
+        ->expectsOutputToContain('Títulos corrigidos: 1')
+        ->assertSuccessful();
+
+    $repaired = array_values(array_filter(storedItems(), fn ($i) => $i['url'] === $url))[0];
+
+    expect($repaired['title'])->toBe('EMEF Profª Maria Cecília Rolim Nalesso recebe autor e ilustradora do livro “O Mistério do Sumiço do Burrinho Cleitim” para interação com alunos');
+});
+
+it('não reabre notícias com título completo nem antigas demais', function () {
+    seedItem('prefeitura', 'https://www.itapetininga.sp.gov.br/noticia/1/completa/', 'Título completo');
+    seedItem('prefeitura', 'https://www.itapetininga.sp.gov.br/noticia/2/antiga/', 'Notícia antiga cortada no meio do...', '2026-08-01 10:00');
+    fakeSources();
+
+    $this->artisan('collect', ['--source' => ['prefeitura'], '--skip-weather' => true])->assertSuccessful();
+
+    Http::assertNotSent(fn ($request) => str_contains($request->url(), '/noticia/1/') || str_contains($request->url(), '/noticia/2/'));
+});
+
+it('não troca o título cortado pelo título de outra notícia', function () {
+    $url = 'https://www.itapetininga.sp.gov.br/noticia/10988/emef/';
+    seedItem('prefeitura', $url, 'Um título bem diferente que também foi cortado no...');
+    fakeSources(['www.itapetininga.sp.gov.br/noticia/10988/*' => fn () => Http::response(fixtureContents('prefeitura-article-long-title.html'))]);
+
+    $this->artisan('collect', ['--source' => ['prefeitura'], '--skip-weather' => true])->assertSuccessful();
+
+    $item = array_values(array_filter(storedItems(), fn ($i) => $i['url'] === $url))[0];
+
+    expect($item['title'])->toBe('Um título bem diferente que também foi cortado no...');
 });

@@ -46,10 +46,10 @@ function fakeSources(array $overrides = []): void
 
     // Closures criam uma resposta nova por requisição (o stream é consumido).
     $fakes = array_map(fn (string $file) => fn () => Http::response(fixtureContents($file)), $fixtures);
+    $custom = array_map(fn ($response) => $response instanceof Closure ? $response : fn () => $response, $overrides);
 
-    foreach ($overrides as $pattern => $response) {
-        $fakes[$pattern] = $response instanceof Closure ? $response : fn () => $response;
-    }
+    // Os padrões são testados em ordem: os específicos do teste vêm primeiro.
+    $fakes = $custom + $fakes;
 
     // Páginas de notícia sem cópia salva.
     $fakes['*'] = fn () => Http::response('', 404);

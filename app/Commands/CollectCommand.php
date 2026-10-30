@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Data\Source;
 use App\Pipeline\Collector;
+use App\Pipeline\TitleRepairer;
 use App\Storage\ItemRepository;
 use App\Storage\StateRepository;
 use App\Weather\WeatherService;
@@ -19,7 +20,7 @@ class CollectCommand extends Command
 
     protected $description = 'Coleta as fontes de notícias, a previsão do tempo e os alertas do INMET';
 
-    public function handle(Collector $collector, WeatherService $weather): int
+    public function handle(Collector $collector, TitleRepairer $repairer, WeatherService $weather): int
     {
         $now = CarbonImmutable::now();
         $dataPath = config('itape.paths.data');
@@ -33,6 +34,11 @@ class CollectCommand extends Command
         $state = new StateRepository($dataPath.'/state.json');
 
         $reports = $collector->collect($sources, $items, $state, $now);
+        $repaired = $repairer->repair(
+            $items, $sources, $now,
+            (int) config('itape.pipeline.repair_limit'),
+            (int) config('itape.pipeline.max_age_days'),
+        );
 
         $this->table(
             ['Fonte', 'Situação', 'Lidos', 'Novos', 'Filtrados'],
@@ -49,6 +55,10 @@ class CollectCommand extends Command
         $state->save();
 
         $this->info(sprintf('%d notícias novas · %d no total%s', array_sum(array_map(fn ($r) => $r->new, $reports)), $items->count(), $changed ? '' : ' · nada mudou'));
+
+        if ($repaired > 0) {
+            $this->line("Títulos corrigidos: {$repaired}");
+        }
 
         if (! $this->option('skip-weather')) {
             $force = (bool) $this->option('force-weather');
