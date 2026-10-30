@@ -8,7 +8,8 @@
 | Cada notícia recebe os temas cujas palavras-chave aparecem no título ou
 | no resumo (comparação sem acentos e em minúsculas). A ORDEM define a
 | prioridade: o primeiro tema encontrado é o que aparece no card.
-| Cultura fica por último por ser o tema mais amplo.
+| Cultura fica por último por ser o tema mais amplo. Um tema sem
+| 'pattern' (Outras) recebe as notícias que não entraram em nenhum outro.
 |
 | As expressões são regex aplicadas ao texto sem acentos; \b marca o
 | limite de palavra. Evite termos genéricos (ex.: "apresenta").
@@ -16,12 +17,6 @@
 */
 
 return [
-
-    'obituarios' => [
-        'name' => 'Obituários',
-        'description' => 'Notas de falecimento e despedidas',
-        'pattern' => '/\b(nota de falecimento|faleceu|falecimento|velorio|sepultamento|obituario|se despede de)\b/',
-    ],
 
     'empregos' => [
         'name' => 'Empregos',
@@ -75,6 +70,13 @@ return [
         'name' => 'Cultura',
         'description' => 'Eventos, shows, teatro e programação cultural',
         'pattern' => '/\b(show|shows|teatro|festival|exposicao|cinema|musica|musical|danca|espetaculo|literari\w*|livros?|biblioteca|cultura\w*|artesanato|desfile|historias)\b/',
+    ],
+
+    // Sem palavras-chave: recebe as notícias que não entraram em nenhum tema.
+    'outras' => [
+        'name' => 'Outras',
+        'description' => 'Demais notícias',
+        'pattern' => null,
     ],
 
 ];

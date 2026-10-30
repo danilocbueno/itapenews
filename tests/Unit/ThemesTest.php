@@ -11,8 +11,6 @@ function titled(string $title, string $summary = ''): Item
 it('classifica títulos reais no tema principal certo', function (string $title, string $theme) {
     expect(Themes::primary(titled($title)))->toBe($theme);
 })->with([
-    ['Nota de falecimento: Geraldo Doniseti Maschietto', 'obituarios'],
-    ['Itapetininga se despede de “Edinho”, empresário e sócio da Funerária Camargo', 'obituarios'],
     ['PAT de Itapetininga tem 280 vagas de emprego nesta quinta-feira', 'empregos'],
     ['Prefeitura de Sarapuí abre concurso para Procurador Jurídico', 'empregos'],
     ['Após exposição em listas discriminatórias, comerciantes de Itapetininga procuram a Polícia Civil', 'policia'],
@@ -60,16 +58,26 @@ it('usa também o resumo para decidir', function () {
         ->toBe('saude');
 });
 
-it('não força tema em notícias que não se encaixam', function (string $title) {
-    expect(Themes::primary(titled($title)))->toBeNull();
+it('coloca em Outras o que não se encaixa em nenhum tema', function (string $title) {
+    expect(Themes::for(titled($title)))->toBe(['outras']);
 })->with([
     'CPFL Santa Cruz lança campanha de bônus para clientes',
     'Governo prorroga subsídio ao diesel por mais 30 dias',
+    'Nota de falecimento: Geraldo Doniseti Maschietto',
 ]);
+
+it('não tem mais o tema Obituários e deixa Outras por último', function () {
+    expect(array_keys(Themes::all()))->not->toContain('obituarios')
+        ->and(array_key_last(Themes::all()))->toBe('outras');
+});
+
+it('nunca coloca em Outras uma notícia que tem tema', function () {
+    expect(Themes::for(titled('Colisão entre caminhão e carro interdita rodovia')))->not->toContain('outras');
+});
 
 it('não confunde palavras genéricas com o tema', function () {
     // "apresentaram problemas" não é cultura; "feira livre" também não.
-    expect(Themes::for(titled('Quatro equipamentos apresentaram problemas na feira livre')))->toBe([]);
+    expect(Themes::for(titled('Quatro equipamentos apresentaram problemas na feira livre')))->toBe(['outras']);
 });
 
 it('ignora acentos e maiúsculas', function () {

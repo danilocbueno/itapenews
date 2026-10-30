@@ -16,7 +16,7 @@
   <div class="card-body">
     <div class="kicker">
       <span class="kicker-source">{{ $source?->short ?? $item->source }}</span>
-      @if ($theme && $theme !== ($currentTheme ?? null))
+      @if ($theme && $theme !== ($currentTheme ?? null) && ! \App\Site\Themes::isFallback($theme))
         <span aria-hidden="true">·</span>
         <a class="kicker-theme" href="{{ $site['base'] }}/tema/{{ $theme }}/">{{ $themes[$theme]['name'] }}</a>
       @endif
