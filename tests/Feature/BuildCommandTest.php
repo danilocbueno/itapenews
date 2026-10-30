@@ -144,6 +144,22 @@ it('agrupa filtros, aviso e previsão no topo da home', function () {
         ->toContain('class="weather"');
 });
 
+it('monta a capa com a manchete e duas notícias ao lado', function () {
+    $this->artisan('build')->assertSuccessful();
+    $front = Str::between(built('index.html'), '<div class="front">', '<!-- /front -->');
+
+    expect(substr_count($front, 'class="card lead'))->toBe(1)
+        ->and(substr_count($front, 'class="card side'))->toBe(2);
+});
+
+it('não repete nenhuma notícia na home', function () {
+    $this->artisan('build')->assertSuccessful();
+    preg_match_all('~<h3><a href="([^"]+)"~', built('index.html'), $links);
+
+    expect($links[1])->not->toBeEmpty()
+        ->and(count($links[1]))->toBe(count(array_unique($links[1])));
+});
+
 it('destaca só a primeira notícia da home', function () {
     $this->artisan('build')->assertSuccessful();
 

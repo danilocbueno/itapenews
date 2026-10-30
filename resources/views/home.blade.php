@@ -20,9 +20,18 @@
   @forelse ($days as $day => $clusters)
     <section class="day">
       <h2 data-day="{{ $day }}">{{ \App\Site\Timeline::dayLabel($day, $now) }}</h2>
+      @if ($loop->first)
+        {{-- Capa: manchete e as duas notícias seguintes ao lado (lado a lado só no desktop) --}}
+        <div class="front">
+          @foreach (array_slice($clusters, 0, 3) as $cluster)
+            @include('partials.card', ['lead' => $loop->first, 'side' => ! $loop->first])
+          @endforeach
+        </div><!-- /front -->
+        @php($clusters = array_slice($clusters, 3))
+      @endif
       <div class="cards">
         @foreach ($clusters as $cluster)
-          @include('partials.card', ['lead' => $loop->parent->first && $loop->first])
+          @include('partials.card', ['lead' => false])
         @endforeach
       </div>
     </section>

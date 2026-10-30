@@ -4,8 +4,9 @@
     $image = $cluster->image();
     $share = 'https://wa.me/?text='.rawurlencode($item->title.' '.$item->url);
     $lead = $lead ?? false;
+    $side = $side ?? false;
 @endphp
-<article class="card{{ $lead ? ' lead' : '' }}{{ $image ? '' : ' noimg' }}" data-sources="{{ implode(' ', $cluster->sources()) }}">
+<article class="card{{ $lead ? ' lead' : '' }}{{ $side ? ' side' : '' }}{{ $image ? '' : ' noimg' }}" data-sources="{{ implode(' ', $cluster->sources()) }}">
   @if ($image)
     <a class="thumb" href="{{ $item->url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
       <img src="{{ $image }}" alt="" loading="{{ $lead ? 'eager' : 'lazy' }}" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.card').classList.add('noimg'); this.parentNode.remove()">
