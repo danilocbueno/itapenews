@@ -204,6 +204,20 @@ td b { font-family: var(--serif); font-size: 1.05rem; }
 .bad { color: var(--accent); font-weight: 600; }
 .small { color: var(--muted); font-size: .8rem; }
 
+/* Resumo do dia */
+.digest { display: grid; gap: 8px; margin: 4px 0 22px; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.digest textarea {
+  width: 100%; box-sizing: border-box; resize: vertical; padding: 12px;
+  font: .9rem/1.5 var(--sans); color: var(--text); background: var(--surface); border: 1px solid var(--line);
+}
+.digest-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.button {
+  display: inline-block; min-height: 44px; padding: 10px 16px; box-sizing: border-box; cursor: pointer;
+  font: 600 .9rem var(--sans); color: var(--bg); background: var(--text); border: 1px solid var(--text); text-decoration: none;
+}
+.button-secondary { color: var(--text); background: none; }
+.button:hover { filter: brightness(1.15); }
+
 /* Rodapé */
 .foot { margin-top: 40px; padding: 0 0 40px; color: var(--muted); font-size: .82rem; }
 .foot-inner { max-width: 760px; margin: 0 auto; padding: 16px 16px 0; display: grid; gap: 8px; }

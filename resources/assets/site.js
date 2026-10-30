@@ -36,6 +36,21 @@
   refreshTimes();
   setInterval(refreshTimes, 60000);
 
+  // Copiar o resumo do dia.
+  document.querySelectorAll('[data-copy]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var field = document.getElementById(button.getAttribute('data-copy'));
+      var status = document.querySelector('[data-copy-status]');
+      var done = function () { if (status) status.textContent = 'Texto copiado.'; };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(field.value).then(done, function () { field.select(); });
+      } else {
+        field.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* o texto fica selecionado */ }
+      }
+    });
+  });
+
   // Filtro por fonte.
   var chips = document.querySelectorAll('.chip[data-source]');
   if (!chips.length) return;

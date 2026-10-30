@@ -311,6 +311,25 @@ it('avisa quando um tema ainda não tem notícias', function () {
     expect(built('tema/esportes/index.html'))->toContain('Ainda não há notícias de esportes.');
 });
 
+it('gera a página do resumo do dia com o texto pronto para o WhatsApp', function () {
+    $this->artisan('build')->assertSuccessful();
+    $page = built('hoje/index.html');
+    $text = html_entity_decode(Str::between($page, '<textarea', '</textarea>'));
+
+    expect($text)->toContain('*ItapeNews · domingo, 25/10*')
+        ->toContain('• ')
+        ->toContain('Leia tudo em: http://localhost:8000/')
+        ->and($page)->toContain('data-copy="digest-text"')
+        ->toContain('href="https://wa.me/?text=%2AItapeNews');
+});
+
+it('leva ao resumo do dia pelo rodapé de todas as páginas', function () {
+    $this->artisan('build')->assertSuccessful();
+
+    expect(built('index.html'))->toContain('href="/hoje/">Resumo do dia</a>')
+        ->and(built('fontes/index.html'))->toContain('href="/hoje/">Resumo do dia</a>');
+});
+
 it('usa o caminho base do GitHub Pages nos links', function () {
     config(['itape.site.base' => '/itapenews']);
 

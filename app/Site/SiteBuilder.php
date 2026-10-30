@@ -89,6 +89,14 @@ final class SiteBuilder
             $months[substr($day, 0, 7)][$day] = count($dayClusters);
         }
 
+        $digest = Digest::select($clusters, $now);
+        $this->write($buildPath.'/hoje/index.html', 'today', [
+            ...$shared,
+            'clusters' => $digest,
+            'text' => Digest::text($digest, $now, $shared['site']['url'], fn (string $key) => isset($sources[$key]) ? $sources[$key]->short : $key),
+        ]);
+        $pages++;
+
         $this->write($buildPath.'/arquivo/index.html', 'archive-index', [...$shared, 'months' => $months]);
         $this->write($buildPath.'/fontes/index.html', 'sources', [
             ...$shared,
