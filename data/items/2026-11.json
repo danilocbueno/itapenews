@@ -1,5 +1,29 @@
 [
     {
+        "id": "8e7562428294c0e7",
+        "source": "g1",
+        "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/11/14/prefeitura-de-alambari-divulga-novos-horarios-de-onibus-para-itapetininga-veja-itinerario.ghtml",
+        "title": "Prefeitura de Alambari divulga novos horários de ônibus para Itapetininga; veja itinerário",
+        "summary": "A Prefeitura de Alambari (SP) divulgou, na quarta-feira (12), os novos horários do transporte intermunicipal entre o município e Itapetininga (SP). A programação inclui viagens nos dois sentidos, com horários específicos para dias úteis…",
+        "image": "https://s2-g1.glbimg.com/GemydeY--G4ItNmhplStRc1ZYcg=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/2/D/MUow5uSziwyOIhHHtZAg/sub-04.jpg",
+        "published_at": "2026-11-14T11:24:12-03:00",
+        "collected_at": "2026-11-14T13:36:44-03:00",
+        "cluster": "8e7562428294c0e7",
+        "hidden": false
+    },
+    {
+        "id": "8b0e49d40884a012",
+        "source": "jornal",
+        "url": "https://www.jornaldeitapetininga.com.br/noticias/veiculo-furtado-e-recuperado-pela-gcm-na-vila-paulo-ayres",
+        "title": "Veículo furtado é recuperado pela GCM na Vila Paulo Ayres",
+        "summary": "A Guarda Civil Municipal (GCM) localizou um Chevrolet Onix branco abandonado durante patrulhamento na noite da última sexta-feira (13), na Vila Paulo Ayres, em Itapetininga. Segundo a GCM, a equipe avistou o veículo abandonado em um trecho…",
+        "image": "https://www.jornaldeitapetininga.com.br/arquivos_personalizados/uploads/noticias/fotos/gcm-recupera-veiculo-furtado-durante-patrulhamento-na-vila-paulo-ayres-4dcdac9655.jpg",
+        "published_at": "2026-11-14T04:01:32-03:00",
+        "collected_at": "2026-11-14T13:36:44-03:00",
+        "cluster": "8b0e49d40884a012",
+        "hidden": false
+    },
+    {
         "id": "f511a5f899442fe3",
         "source": "jornal",
         "url": "https://www.jornaldeitapetininga.com.br/noticias/gcm-encontra-veiculo-furtado-na-vila-paulo-ayres",
